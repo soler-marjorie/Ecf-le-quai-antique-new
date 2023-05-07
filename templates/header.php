@@ -8,7 +8,6 @@
 
             <!-- navigation -->
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
                 <li><a href="#" class="nav-link px-2">Features</a></li>
                 <li><a href="#" class="nav-link px-2">Pricing</a></li>
                 <li><a href="#" class="nav-link px-2">FAQs</a></li>
@@ -18,7 +17,7 @@
             <!-- logo -->
             <div class="col-md-3 mb-2 mb-md-0">
                 <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
-                <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+                    <img src="./assets/img/logo.png" width="200" height="200"></img>
                 </a>
             </div>
 
@@ -34,12 +33,11 @@
         <div class="py-3 mb-4 ">
             <div class="container d-flex flex-wrap justify-content-center">
                 <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto link-body-emphasis text-decoration-none">
-                    <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-                    <span class="fs-4">Double header</span>
+                    <button type="button" class="btn btn-primary">Réserver</button>
                 </a>
             </div>
         </div>
         
     </div>
 
-    <main>
+    <main class="image">
