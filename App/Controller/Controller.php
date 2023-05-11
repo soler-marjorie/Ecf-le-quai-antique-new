@@ -11,8 +11,12 @@ Les requêtes arrivent d'abord à lui/ c'est lui qui recoit en premier toutes le
 class Controller
 {
     /* 
-    Création d'une méthode appelée route qui ne retourne rien.
+    Création d'une méthode appelée route qui ne retourne rien(void).
     Son rôle sera d'analyser ce qu'il y a dans l'url
+    */
+    /*
+    Son rôle est de faire un premier routage global
+    Il va analyser quel controller on veut appeler à partir du paramètre d'url
     */
     public function route(): void 
     {
@@ -20,17 +24,18 @@ class Controller
         if (isset($_GET['controller'])) {
             //isset permet de tester le controller
             switch ($_GET['controller']) {
-                case 'page':
-                    // on va charger la controller page
-                    var_dump('on charge pageController');
-                    break;
-
-                case 'pictureHome':
-                    // on va charger la controller PictureHome
-                    var_dump('on charge PictureHomeController');
+                case 'home':
+                    // on va charger la controller home
+                    $homeController = new HomeController();
+                    $homeController->route();
                     break;
 
                 case 'menu':
+                    // on va charger la controller Menu
+                    var_dump('on charge MenuController');
+                    break;
+
+                case 'contact':
                     // on va charger la controller Menu
                     var_dump('on charge MenuController');
                     break;
@@ -43,6 +48,33 @@ class Controller
             //si la personne ne spécifie pas de controller alors on charge la page d'acceuil
         }
 
+    }
+
+    /*
+    render s'utilise sur tous les controleurs, elle est donc utilisée dans le controller parent.
+    le role de cette méthode est de passer des paramètres et de gérer un affichage d'une page, de tester si le templates 
+    existe (un peu gestion d'erreur).
+    */
+    // en premier paramètre : path --> ce qu'on veut rendre, ce qu'on veut afficher.
+    // en deuxième paramètre : params --> ce sont des paramètres que l'on veut passer à la vue (des variables, ...).
+    protected  function render(string $path, array $params = []):void
+    {
+        $filePath = _ROOTPATH_.'/templates/'.$path.'.php';
+
+        try {
+            if (!file_exists($filePath)) {
+                //générer une erreur
+                throw new \Exception("Fichier non trouvé : ".$filePath);
+            } else {
+                //extrait chaque ligne du tableau et créer des variable pour chacune
+                extract($params);
+                require_once $filePath;
+            }
+        } catch(\Exception $e) {
+            echo $e->getMessage();
+        }
+
+       
     }
 
 }
