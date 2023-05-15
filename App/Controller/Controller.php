@@ -20,32 +20,42 @@ class Controller
     */
     public function route(): void 
     {
-        //Get : permet de récuperer quel controller dans l'url
-        if (isset($_GET['controller'])) {
-            //isset permet de tester le controller
-            switch ($_GET['controller']) {
-                case 'home':
-                    // on va charger la controller home
-                    $homeController = new HomeController();
-                    $homeController->route();
-                    break;
+        try {
+            //Get : permet de récuperer quel controller dans l'url
+            if (isset($_GET['controller'])) {
+                //isset permet de tester le controller
+                switch ($_GET['controller']) {
+                    case 'home':
+                        // on va charger la controller home
+                        $homeController = new HomeController();
+                        $homeController->route();
+                        break;
 
-                case 'menu':
-                    // on va charger la controller Menu
-                    var_dump('on charge MenuController');
-                    break;
+                    case 'menu':
+                        // on va charger la controller Menu
+                        $menuController = new MenuController();
+                        $menuController->route();
+                        break;
 
-                case 'contact':
-                    // on va charger la controller Menu
-                    var_dump('on charge MenuController');
-                    break;
-                
-                default:
-                    // génère une erreur
-                    break;
+                    case 'contact':
+                        // on va charger la controller Menu
+                        var_dump('on charge MenuController');
+                        break;
+                    
+                    default:
+                        // génère une erreur
+                        throw new \Exception("Le controller n'existe pas");
+                        break;
+                }
+            } else {
+                //si la personne ne spécifie pas de controller alors on charge la page d'acceuil
+                $homeController = new HomeController();
+                $homeController->home();
             }
-        } else {
-            //si la personne ne spécifie pas de controller alors on charge la page d'acceuil
+        } catch (\Exception $e) {
+            $this->render('errors/default', [
+                'error' => $e->getMessage()
+            ]);
         }
 
     }
@@ -70,11 +80,12 @@ class Controller
                 extract($params);
                 require_once $filePath;
             }
-        } catch(\Exception $e) {
-            echo $e->getMessage();
+        } catch (\Exception $e) {
+            $this->render('errors/default', [
+                'error' => $e->getMessage()
+            ]);
         }
 
-       
     }
 
 }

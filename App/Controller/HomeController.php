@@ -13,19 +13,27 @@ class HomeController extends Controller
 {
     public function route(): void 
     {
-        if (isset($_GET['action'])) {
-            switch ($_GET['action']) {
-                case 'pictureHome':
-                    // on appel la méthode pictureHome()
-                    $this->Home();
-                    break;
-                
-                default:
-                    // génère une erreur
-                    break;
+        try {
+            if (isset($_GET['action'])) {
+                switch ($_GET['action']) {
+                    case 'pictureHome':
+                        // on appel la méthode pictureHome()
+                        $this->Home();
+                        break;
+                    
+                    default:
+                        // génère une erreur
+                        throw new \Exception("Cette action n'existe pas : ".$_GET['action']);
+                        break;
+                }
+            } else {
+                //si la personne ne spécifie pas de controller alors on charge la page d'acceuil
+                throw new \Exception("aucune action détectée");
             }
-        } else {
-            //si la personne ne spécifie pas de controller alors on charge la page d'acceuil
+        } catch (\Exception $e) {
+            $this->render('errors/default', [
+                'error' => $e->getMessage()
+            ]);
         }
     }
 
