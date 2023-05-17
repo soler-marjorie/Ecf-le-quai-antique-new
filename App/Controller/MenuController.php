@@ -23,17 +23,17 @@ class MenuController extends Controller
                         break;
 
                     case 'edit':
-                        // pour afficher un menu
+                        // pour ajouter un menu
                         //$this->edit();
                         break;
                     
                     case 'add':
-                        // pour afficher tous les menus
+                        // pour ajouter tous les menus
                         //$this->add();
                         break;
 
                     case 'delete':
-                        // pour afficher tous les menus
+                        // pour supprimer un menu
                         //$this->delete();
                         break;
 

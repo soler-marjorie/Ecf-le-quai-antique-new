@@ -5,10 +5,8 @@ controlleur pour page statique comme home ou about
 
 namespace App\Controller;
 
-/*
-PageController qui s'étend du Controller parent.
-Son rôle sera d'analyser qu'elle action il doit effectuer dans la page
-*/
+use App\Repository\HomeRepository;
+
 class HomeController extends Controller 
 {
     public function route(): void 
@@ -16,9 +14,9 @@ class HomeController extends Controller
         try {
             if (isset($_GET['action'])) {
                 switch ($_GET['action']) {
-                    case 'pictureHome':
+                    case 'home':
                         // on appel la méthode pictureHome()
-                        $this->Home();
+                        $this->home();
                         break;
                     
                     default:
@@ -37,16 +35,27 @@ class HomeController extends Controller
         }
     }
 
-    protected function Home()
+    protected function home()
     {
         
+        try {
+            if (isset($_POST['id'])) {
 
-        //on peut récuperer les données en faisant appel au modèle
-        //au lieu de créer un tableau $params ont le passe directement au second paramètre de la fonction
-        //premier paramètre la page que je veux afficher et second paramètre un tableau associatif
-        $this->render('page/home', [
-            'test' => 'abc',
-            "test2" => 'abc2'
-        ]);
+                $id = (int)$_POST['id'];
+
+                $homeRepository = new HomeRepository();
+                $home = $homeRepository->findOneById($id);
+
+                $this->render('home/picture', [
+                    'home' => $home
+                ]);
+            } else {
+                throw new \Exception("l'id est manquant en paramètre");
+            }
+        } catch (\Exception $e) {
+            $this->render('errors/default', [
+                'error' => $e->getMessage()
+            ]);
+        }
     }
 }

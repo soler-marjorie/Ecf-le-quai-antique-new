@@ -11,7 +11,7 @@ class MenuRepository
     public function findOneById(int $id) 
     {
         //appel de la BDD
-        //on récupère une instance de mysql
+        //on récupère une instance de mysql 
         $mysql = Mysql::getInstance();
         $pdo = $mysql->getPDO();
 
