@@ -66,3 +66,7 @@ h2, h3 {
     color: var(--secondary);
     font-family: 'Lora', serif;
 }
+
+p{
+    color : rgb(255, 255, 255);
+}

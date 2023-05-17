@@ -4,7 +4,7 @@ namespace App\Model;
 
 class Menu
 {
-    protected int $id;
+    protected ?int $id = null;
     protected string $title;
     protected string $description;
 
@@ -13,7 +13,7 @@ class Menu
     /**
      * Get the value of id
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -21,7 +21,7 @@ class Menu
     /**
      * Set the value of id
      */
-    public function setId(int $id): self
+    public function setId(?int $id): self
     {
         $this->id = $id;
 

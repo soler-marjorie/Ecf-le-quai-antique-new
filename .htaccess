@@ -1,0 +1,4 @@
+//réécriture d'url
+RewriteEngine On
+
+RewriteRule ^Accueil/$ /Projet_marjo/QuaiAntique/index.php?controller=home&action=pictureHome
