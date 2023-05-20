@@ -7,8 +7,9 @@ class Menu
     protected ?int $id = null;
     protected string $title;
     protected string $description;
+    protected float $price;
 
-  
+
 
     /**
      * Get the value of id
@@ -60,6 +61,24 @@ class Menu
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of price
+     */
+    public function getPrice(): float
+    {
+        return $this->price;
+    }
+
+    /**
+     * Set the value of price
+     */
+    public function setPrice(float $price): self
+    {
+        $this->price = $price;
 
         return $this;
     }

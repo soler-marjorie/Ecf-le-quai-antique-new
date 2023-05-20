@@ -26,20 +26,21 @@ class Controller
                 //isset permet de tester le controller
                 switch ($_GET['controller']) {
                     case 'home':
-                        // on va charger la controller home
+                        // on va charger le controller home
                         $homeController = new HomeController();
                         $homeController->route();
                         break;
 
                     case 'menu':
-                        // on va charger la controller Menu
+                        // on va charger le controller Menu
                         $menuController = new MenuController();
                         $menuController->route();
                         break;
 
-                    case 'contact':
-                        // on va charger la controller Menu
-                        var_dump('on charge MenuController');
+                    case 'user':
+                        // on va charger le controller user
+                        $userController = new UserController();
+                        $userController->route();
                         break;
                     
                     default:

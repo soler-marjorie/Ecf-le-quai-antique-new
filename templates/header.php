@@ -9,7 +9,7 @@
             <!-- navigation -->
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="#" class="nav-link px-2">Accueil</a></li>
-                <li><a href="#" class="nav-link px-2">La carte</a></li>
+                <li><a href=".\templates\menu\show.php" class="nav-link px-2">La carte</a></li>
                 <li><a href="#" class="nav-link px-2">Contact</a></li>
             </ul>
 
@@ -22,10 +22,11 @@
 
             <!-- log in and sign-up buttons -->
             <div class="col-md-3 text-end">
-                <button type="button" class="btn btn-outline-primary me-2">Login</button>
-                <button type="button" class="btn btn-primary">Sign-up</button>
+                <a href=".\templates\user\connexion.php" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto link-body-emphasis text-decoration-none">
+                    <button type="button" class="btn btn-outline-primary me-2">se connecter</button>
+                </a>
             </div>
-            
+
         </header>
 
         <!-- book button -->
@@ -39,4 +40,4 @@
         
     </div>
 
-    <main class="image">
+    <main>

@@ -14,7 +14,7 @@ class HomeController extends Controller
         try {
             if (isset($_GET['action'])) {
                 switch ($_GET['action']) {
-                    case 'home':
+                    case 'show':
                         // on appel la méthode pictureHome()
                         $this->home();
                         break;
@@ -39,9 +39,9 @@ class HomeController extends Controller
     {
         
         try {
-            if (isset($_POST['id'])) {
+            if (isset($_GET['id'])) {
 
-                $id = (int)$_POST['id'];
+                $id = (int)$_GET['id'];
 
                 $homeRepository = new HomeRepository();
                 $home = $homeRepository->findOneById($id);

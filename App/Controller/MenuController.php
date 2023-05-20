@@ -62,7 +62,7 @@ class MenuController extends Controller
                 //charger le livre par un appel au repository
 
                 $menuRepository = new MenuRepository();
-                //on appel notre méthode qui va nous retoruner un livre
+                //on appel notre méthode qui va nous retourner un livre
                 $menu = $menuRepository->findOneById($id);
 
                 $this->render('menu/show', [

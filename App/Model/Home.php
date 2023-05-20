@@ -6,6 +6,9 @@ class Home
 {
     protected ?int $id = null;
     protected string $title;
+    protected string $src;
+
+    
 
     /**
      * Get the value of id
@@ -39,6 +42,24 @@ class Home
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of src
+     */
+    public function getSrc(): string
+    {
+        return $this->src;
+    }
+
+    /**
+     * Set the value of src
+     */
+    public function setSrc(string $src): self
+    {
+        $this->src = $src;
 
         return $this;
     }

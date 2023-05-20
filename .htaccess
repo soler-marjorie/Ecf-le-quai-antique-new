@@ -1,0 +1,3 @@
+RewriteEngine On
+
+RewriteRule ^accueil/$ /Projet_marjo/quaiantiquestudi/index.php?controller=home&action=picture
