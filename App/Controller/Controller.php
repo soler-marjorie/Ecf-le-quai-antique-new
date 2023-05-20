@@ -51,7 +51,7 @@ class Controller
             } else {
                 //si la personne ne spécifie pas de controller alors on charge la page d'acceuil
                 $homeController = new HomeController();
-                $homeController->home();
+                $homeController->show();
             }
         } catch (\Exception $e) {
             $this->render('errors/default', [

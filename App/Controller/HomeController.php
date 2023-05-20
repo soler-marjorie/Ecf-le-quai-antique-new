@@ -16,7 +16,7 @@ class HomeController extends Controller
                 switch ($_GET['action']) {
                     case 'show':
                         // on appel la méthode pictureHome()
-                        $this->home();
+                        $this->show();
                         break;
                     
                     default:
@@ -35,19 +35,19 @@ class HomeController extends Controller
         }
     }
 
-    protected function home()
+    protected function show()
     {
         
         try {
-            if (isset($_GET['id'])) {
+            if (isset($_GET['src'])) {
 
-                $id = (int)$_GET['id'];
+                $src = (int)$_GET['src'];
 
-                $homeRepository = new HomeRepository();
-                $home = $homeRepository->findOneById($id);
+                $showRepository = new HomeRepository();
+                $show = $showRepository->findOneById($src);
 
                 $this->render('home/picture', [
-                    'home' => $home
+                    'home' => $show
                 ]);
             } else {
                 throw new \Exception("l'id est manquant en paramètre");
