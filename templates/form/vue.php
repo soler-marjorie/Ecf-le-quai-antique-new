@@ -1,12 +1,12 @@
-<?php require_once '\templates\header.php'; ?>
+<?php require_once _ROOTPATH_.'\templates\header.php'; ?>
 
-<form action="App/Controller/Controller.php" method="post">
+<form action="" method="post">
     <h2 class="text-center">Connexion</h2>    
 
     <div class="form-group">
         <input type="email" name="email" class="form-control" placeholder="Email" required="required" autocomplete="off">
     </div>
-
+</br>
     <div class="form-group">
         <input type="password" name="password" class="form-control" placeholder="Mot de passe" required="required" autocomplete="off">
     </div>
@@ -17,6 +17,6 @@
 
 </form>
 
-<p class="text-center"><a href="inscription.php">Inscription</a></p>
+<p class="text-center"><a href="./index.php?controller=user&action=inscription&id=1">Inscription</a></p>
 
-<?php require_once '\templates\footer.php'; ?>
+<?php require_once _ROOTPATH_.'\templates\footer.php'; ?>

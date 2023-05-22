@@ -1,65 +1,63 @@
 <?php
 
+
 namespace App\Repository;
 
-use App\Model\User;
-use App\Db\Mysql;
-use mysqli;
 
-//use App\Tools\StringTools;
+use App\Db\Mysql;
+
 
 class ConnexionRepository
 {
-    
-    public function findOneById(int $id) 
-    {
-        //appel de la BDD
-        //on récupère une instance de mysql
-        $mysql = Mysql::getInstance();
-        $pdo = $mysql->getPDO();
-
-        $query = $pdo->prepare('SELECT * FROM connexion WHERE id = :id');
-        $query->bindValue(':id', $id, $pdo::PARAM_INT);
-        $query->execute();
-        //fetch pour récuperer qu'un seul livre
-        $connexion = $query->fetch($pdo::FETCH_ASSOC); //renvoi un tableau associatif juste avec les valeurs nécessaires
-        $connexionEntity = new User();
-
-        foreach ($connexion as $key => $value) {
-            $connexionEntity->{'set'.StringTools::toPascalCase($key)}($value);
+   
+    public function authentification() 
+    {    //on démarre la session php
+        session_start();
+        if(isset($_SESSION["user"])){
+            header("location: templates\user\profilUser.php");
+            exit;
         }
+        //On vérifie si le formulaire à été envoyé
+        if(!empty($_POST)){
+            //Le formulaire à été envoyé 
+            //On vérifie tous les champs
+            if(isset($_POST['email'], $_POST['password']) && !empty($_POST['email'] && !empty($_POST['password']))){
+            
+                if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+                    die("l'adresse mail est incorrecte");
+                }
 
-        return $connexionEntity;
+                //on se connecte à la bdd
+                $mysql = Mysql::getInstance();
+                $pdo = $mysql->getPDO();
 
+                $query = $pdo->prepare("SELECT * FROM user WHERE email = :email");
+                $query->bindValue(":email", $_POST['email'], $pdo::PARAM_STR);
+                $query->execute();
 
-    }
-    
-/*
-    public function welcomeUser()
-    {
-        // Patch XSS
-        $email = htmlspecialchars($_POST['email']); 
-        $password = htmlspecialchars($_POST['password']);
+                $user = $query->fetch();
 
-        //appel de la BDD
-        $mysql = Mysql::getInstance();
-        $pdo = $mysql->getPDO();
+                if(!$user){
+                    die("l'utilisateur et/ou le mot de passe incorrect");
+                }
 
-        $query = $pdo->prepare('SELECT * FROM user WHERE email = :email AND password = :password');
-        $query->bindValue(':email', $email, $pdo::PARAM_INT);
-        $query->bindValue(':password', $password, $pdo::PARAM_INT);
-        $query->execute();
+                //On a un user existant, on peut vérifier le mot de passe
+                if(!password_verify($_POST['password'], $user['pasword'])){
+                    die("l'utilisateur et/ou le mot de passe incorrect");
+                }
+                
+                
+                //on stock dans $_SESSION les informations de l'utilisateur
+                $_SESSION['user'] = [
+                    "id" => $user["id"],
+                    "name" => $user["name"],
+                    "surname" => $user["surname"],
+                    "email" => $user["email"]
+                ];
 
-        $numberLine = \mysqli_num_rows($query);
-
-        if ($numberLine > 0) {
-            header("location : home.php");
-            //on entre dans l'espace membre
-        } else {
-            echo "email ou mot de passe invalide";
+                //on peut rediriger vers la page de profil par exemple
+                header("location: templates\user\profilUser.php");
+            }
         }
     }
-*/
-
-    
 }

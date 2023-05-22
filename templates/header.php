@@ -8,9 +8,9 @@
 
             <!-- navigation -->
             <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="index.php" class="nav-link px-2">Accueil</a></li>
-                <li><a href="#" class="nav-link px-2">La carte</a></li>
-                <li><a href="#" class="nav-link px-2">Contact</a></li>
+                <li><a href="./index.php?controller=home&action=show&id=1" class="nav-link px-2">Accueil</a></li>
+                <li><a href="./index.php?controller=menu&action=show&id=1" class="nav-link px-2">La carte</a></li>
+                <li><a href="./index.php?controller=contact&action=show&id=1" class="nav-link px-2">Contact</a></li>
             </ul>
 
             <!-- logo -->
@@ -22,12 +22,12 @@
 
             <!-- log in and sign-up buttons -->
             <div class="col-md-3 text-end">
-                <a href=".\templates\user\connexion.php" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto link-body-emphasis text-decoration-none">
-                    <button type="button" class="btn btn-outline-primary me-2">se connecter</button>
-                </a>
-            </div>
+                <a href="./index.php?controller=user&action=show&id=1" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto link-body-emphasis text-decoration-none">
+                <button type="button" class="btn btn-outline-primary me-2">se connecter</button>
+            </div>        
 
         </header>
+
 
         <!-- book button -->
         <div class="py-3 mb-4 ">
@@ -39,5 +39,4 @@
         </div>
         
     </div>
-
-    <main>
+<main>

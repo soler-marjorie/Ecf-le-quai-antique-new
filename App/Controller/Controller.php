@@ -37,6 +37,12 @@ class Controller
                         $menuController->route();
                         break;
 
+                    case 'contact':
+                        // on va charger le controller user
+                        $contactController = new ContactController();
+                        $contactController->route();
+                        break;
+
                     case 'user':
                         // on va charger le controller user
                         $userController = new UserController();
@@ -71,11 +77,12 @@ class Controller
     protected  function render(string $path, array $params = []):void
     {
         $filePath = _ROOTPATH_.'/templates/'.$path.'.php';
-
+        
         try {
             if (!file_exists($filePath)) {
                 //générer une erreur
                 throw new \Exception("Fichier non trouvé : ".$filePath);
+                
             } else {
                 //extrait chaque ligne du tableau et créer des variable pour chacune
                 extract($params);

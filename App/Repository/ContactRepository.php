@@ -2,11 +2,11 @@
 
 namespace App\Repository;
 
-use App\Model\Home;
+use App\Model\Contact;
 use App\Db\Mysql;
 use App\Tools\StringTools;
 
-class HomeRepository
+class ContactRepository
 {
     public function findOneById(int $id) 
     {
@@ -16,17 +16,17 @@ class HomeRepository
         $mysql = Mysql::getInstance();
         $pdo = $mysql->getPDO();
 
-        $query = $pdo->prepare('SELECT * FROM home WHERE id = :id');
+        $query = $pdo->prepare('SELECT * FROM contact WHERE id = :id');
         $query->bindValue(':id', $id, $pdo::PARAM_INT);
         $query->execute();
         //fetch pour récuperer qu'un seul livre
-        $home = $query->fetch($pdo::FETCH_ASSOC); //renvoi un tableau associatif juste avec les valeurs nécessaires
-        $homeEntity = new Home();
+        $contact = $query->fetch($pdo::FETCH_ASSOC); //renvoi un tableau associatif juste avec les valeurs nécessaires
+        $contactEntity = new Contact();
 
-        foreach ($home as $key => $value) {
-            $homeEntity->{'set'.StringTools::toPascalCase($key)}($value);
+        foreach ($contact as $key => $value) {
+            $contactEntity->{'set'.StringTools::toPascalCase($key)}($value);
         }
 
-        return $homeEntity;
+        return $contactEntity;
     }
 }

@@ -1,11 +1,13 @@
 <?php
+/*
+controlleur pour page statique comme home ou about 
+*/
 
 namespace App\Controller;
 
-//on appel le repository que l'on est en train de gérer
-use App\Repository\MenuRepository;
+use App\Repository\ContactRepository;
 
-class MenuController extends Controller 
+class ContactController extends Controller 
 {
     public function route(): void 
     {
@@ -13,30 +15,10 @@ class MenuController extends Controller
             if (isset($_GET['action'])) {
                 switch ($_GET['action']) {
                     case 'show':
-                        // pour afficher un menu
+                        // on appel la méthode show()
                         $this->show();
                         break;
-                    /*
-                    case 'list':
-                        // pour afficher tous les menus
-                        //$this->list();
-                        break;
-
-                    case 'edit':
-                        // pour ajouter un menu
-                        //$this->edit();
-                        break;
                     
-                    case 'add':
-                        // pour ajouter tous les menus
-                        //$this->add();
-                        break;
-
-                    case 'delete':
-                        // pour supprimer un menu
-                        //$this->delete();
-                        break;
-*/
                     default:
                         // génère une erreur
                         throw new \Exception("Cette action n'existe pas : ".$_GET['action']);
@@ -54,19 +36,19 @@ class MenuController extends Controller
     }
 
     protected function show()
-    {
+    {     
         try {
             if (isset($_GET['id'])) {
 
                 $id = (int)$_GET['id'];
                 //charger le livre par un appel au repository
 
-                $menuRepository = new MenuRepository();
+                $showRepository = new ContactRepository();
                 //on appel notre méthode qui va nous retourner un livre
-                $menu = $menuRepository->findOneById($id);
+                $show = $showRepository->findOneById($id);
 
-                $this->render('menu/show', [
-                    'menu' => $menu
+                $this->render('contact/vue', [
+                    'contact' => $show
                 ]);
             } else {
                 throw new \Exception("l'id est manquant en paramètre");
@@ -76,8 +58,5 @@ class MenuController extends Controller
                 'error' => $e->getMessage()
             ]);
         }
-
-        
     }
-
 }

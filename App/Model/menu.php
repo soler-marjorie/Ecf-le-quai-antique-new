@@ -5,6 +5,8 @@ namespace App\Model;
 class Menu
 {
     protected ?int $id = null;
+    protected string $formule;
+    protected string $plat;
     protected string $title;
     protected string $description;
     protected float $price;
@@ -25,6 +27,42 @@ class Menu
     public function setId(?int $id): self
     {
         $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of formule
+     */
+    public function getFormule(): string
+    {
+        return $this->formule;
+    }
+
+    /**
+     * Set the value of formule
+     */
+    public function setFormule(string $formule): self
+    {
+        $this->formule = $formule;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of plat
+     */
+    public function getPlat(): string
+    {
+        return $this->plat;
+    }
+
+    /**
+     * Set the value of plat
+     */
+    public function setPlat(string $plat): self
+    {
+        $this->plat = $plat;
 
         return $this;
     }

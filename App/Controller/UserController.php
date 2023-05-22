@@ -5,6 +5,8 @@ controlleur pour page statique comme home ou about
 
 namespace App\Controller;
 
+use App\Repository\UserRepository;
+use App\Repository\InscriptionRepository;
 use App\Repository\ConnexionRepository;
 
 class UserController extends Controller
@@ -14,14 +16,9 @@ class UserController extends Controller
         try {
             if (isset($_GET['action'])) {
                 switch ($_GET['action']) {
-                    case 'connexion':
+                    case 'show':
                         // on appel la méthode connexion()
-                        $this->connexion();
-                        break;
-                    /*
-                    case 'deconnexion':
-                        // on appel la méthode pictureHome()
-                        $this->deconnexion();
+                        $this->show();
                         break;
 
                     case 'inscription':
@@ -29,7 +26,17 @@ class UserController extends Controller
                         $this->inscription();
                         break;
 
-                    case 'esspacemembre':
+                    case 'connexion':
+                        // on appel la méthode pictureHome()
+                        $this->connexion();
+                        break;
+                    /*
+                    case 'deconnexion':
+                        // on appel la méthode pictureHome()
+                        $this->deconnexion();
+                        break;
+                  
+                    case 'espacemembre':
                         // on appel la méthode pictureHome()
                         $this->membre();
                         break;
@@ -51,7 +58,7 @@ class UserController extends Controller
     }
 
     
-    protected function connexion()
+    protected function show()
     {
         
         try {
@@ -59,11 +66,11 @@ class UserController extends Controller
 
                 $id = (int)$_GET['id'];
 
-                $connexionRepository = new ConnexionRepository();
-                $connexion = $connexionRepository->findOneById($id);
+                $userRepository = new UserRepository();
+                $user = $userRepository->findOneById($id);
 
-                $this->render('user/connexion', [
-                    'connexion' => $connexion
+                $this->render('form/vue', [
+                    'user' => $user
                 ]);
             } else {
                 throw new \Exception("l'id est manquant en paramètre");
@@ -74,22 +81,20 @@ class UserController extends Controller
             ]);
         }
     }
-    
-/*
-    protected function connexion()
+
+    protected function inscription()
     {
-        
         try {
-            if (isset($_POST['email']) && isset($_POST['password'])) {
+            if (isset($_GET['id'])) {
 
-                $connexionRepository = new ConnexionRepository();
-                $connexion = $connexionRepository->welcomeUser();
+                $inscriptionRepository = new InscriptionRepository();
+                $inscription = $inscriptionRepository->register();
 
-                $this->render('user/connexion', [
-                    'connexion' => $connexion
+                $this->render('form/inscription', [
+                    'user' => $inscription
                 ]);
             } else {
-                throw new \Exception("identifiant est manquant");
+                throw new \Exception("l'id est manquant en paramètre");
             }
         } catch (\Exception $e) {
             $this->render('errors/default', [
@@ -97,8 +102,28 @@ class UserController extends Controller
             ]);
         }
     }
-*/
+
+    protected function connexion()
+    {
+        try {
+            if (isset($_GET['id'])) {
+
+
+                $connexionRepository = new ConnexionRepository();
+                $connexion = $connexionRepository->authentification();
+
+                $this->render('form/inscription', [
+                    'user' => $connexion
+                ]);
+            } else {
+                throw new \Exception("l'id est manquant en paramètre");
+            }
+        } catch (\Exception $e) {
+            $this->render('errors/default', [
+                'error' => $e->getMessage()
+            ]);
+        }
+    }
+}  
 
     
-
-}

@@ -8,7 +8,7 @@ class Home
     protected string $title;
     protected string $src;
 
-    
+
 
     /**
      * Get the value of id

@@ -15,7 +15,7 @@ class HomeController extends Controller
             if (isset($_GET['action'])) {
                 switch ($_GET['action']) {
                     case 'show':
-                        // on appel la méthode pictureHome()
+                        // on appel la méthode show()
                         $this->show();
                         break;
                     
@@ -36,15 +36,16 @@ class HomeController extends Controller
     }
 
     protected function show()
-    {
-        
+    {     
         try {
-            if (isset($_GET['src'])) {
+            if (isset($_GET['id'])) {
 
-                $src = (int)$_GET['src'];
+                $id = (int)$_GET['id'];
+                //charger le livre par un appel au repository
 
                 $showRepository = new HomeRepository();
-                $show = $showRepository->findOneById($src);
+                //on appel notre méthode qui va nous retourner un livre
+                $show = $showRepository->findOneById($id);
 
                 $this->render('home/picture', [
                     'home' => $show

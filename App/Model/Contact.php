@@ -2,13 +2,16 @@
 
 namespace App\Model;
 
-class User
-{
-    private ?int $id = null;
-    private string $name;
-    private string $surname;
-    private string $email;
-    private string $password;
+class Contact{
+
+    protected ?int $id = null;
+    protected string $name;
+    protected string $surname;
+    protected string $email;
+    protected string $object;
+    protected string $message;
+
+
 
     /**
      * Get the value of id
@@ -83,21 +86,38 @@ class User
     }
 
     /**
-     * Get the value of password
+     * Get the value of object
      */
-    public function getPassword(): string
+    public function getObject(): string
     {
-        return $this->password;
+        return $this->object;
     }
 
     /**
-     * Set the value of password
+     * Set the value of object
      */
-    public function setPassword(string $password): self
+    public function setObject(string $object): self
     {
-        $this->password = $password;
+        $this->object = $object;
 
         return $this;
     }
 
+    /**
+     * Get the value of message
+     */
+    public function getMessage(): string
+    {
+        return $this->message;
+    }
+
+    /**
+     * Set the value of message
+     */
+    public function setMessage(string $message): self
+    {
+        $this->message = $message;
+
+        return $this;
+    }
 }

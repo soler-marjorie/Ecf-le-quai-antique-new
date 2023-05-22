@@ -1,3 +1,7 @@
 RewriteEngine On
 
-RewriteRule ^accueil/$ /Projet_marjo/quaiantiquestudi/index.php?controller=home&action=show
+RewriteRule ^Accueil/$ /index.php?controller=home&action=show&src=1
+
+RewriteRule ^Lacarte/$ /index.php?controller=menu&action=show&id=1
+
+RewriteRule ^Contact/$ /index.php?controller=contact&action=show&id=1
