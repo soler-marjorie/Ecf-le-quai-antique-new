@@ -13,10 +13,7 @@ class ConnexionRepository
     public function authentification() 
     {    //on démarre la session php
         session_start();
-        if(isset($_SESSION["user"])){
-            header("location: templates\user\profilUser.php");
-            exit;
-        }
+
         //On vérifie si le formulaire à été envoyé
         if(!empty($_POST)){
             //Le formulaire à été envoyé 
@@ -38,14 +35,13 @@ class ConnexionRepository
                 $user = $query->fetch();
 
                 if(!$user){
-                    die("l'utilisateur et/ou le mot de passe incorrect");
+                    die("l'utilisateur n'existe pas");
                 }
 
                 //On a un user existant, on peut vérifier le mot de passe
-                if(!password_verify($_POST['password'], $user['pasword'])){
+                if(!password_verify($_POST['password'], $user['password'])){
                     die("l'utilisateur et/ou le mot de passe incorrect");
                 }
-                
                 
                 //on stock dans $_SESSION les informations de l'utilisateur
                 $_SESSION['user'] = [
@@ -54,9 +50,9 @@ class ConnexionRepository
                     "surname" => $user["surname"],
                     "email" => $user["email"]
                 ];
-
+                
                 //on peut rediriger vers la page de profil par exemple
-                header("location: templates\user\profilUser.php");
+                header("location: ./index.php?controller=user&action=membre&id=1");
             }
         }
     }

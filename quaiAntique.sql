@@ -84,4 +84,5 @@ CREATE TABLE IF NOT EXISTS user(
 
 INSERT INTO user (name, surname, email, password)
 VALUES
-('mina', 'lechat', 'lechatmina@exemple.fr', 'moonbinleloup');
+('mina', 'lechat', 'lechatmina@exemple.fr', 'moonbinleloup'),
+('levento', 'barbare', 'leventobarbare@exemple.com', 'marcheDanslanuit');

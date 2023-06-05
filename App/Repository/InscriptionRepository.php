@@ -14,7 +14,7 @@ class InscriptionRepository
         //on démarre la session php
         session_start();
         if(isset($_SESSION["user"])){
-            header("location: templates\user\profilUser.php");
+            header("location: ./index.php?controller=user&action=membre&id=1");
             exit;
         }
         //On vérifie si le formulaire à été envoyé

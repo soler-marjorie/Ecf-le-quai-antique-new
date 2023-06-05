@@ -8,6 +8,8 @@ namespace App\Controller;
 use App\Repository\UserRepository;
 use App\Repository\InscriptionRepository;
 use App\Repository\ConnexionRepository;
+use App\Repository\DeconnexionRepository;
+use App\Repository\MembreRepository;
 
 class UserController extends Controller
 {
@@ -22,25 +24,25 @@ class UserController extends Controller
                         break;
 
                     case 'inscription':
-                        // on appel la méthode pictureHome()
+                        // on appel la méthode inscription()
                         $this->inscription();
                         break;
 
                     case 'connexion':
-                        // on appel la méthode pictureHome()
+                        // on appel la méthode connexion()
                         $this->connexion();
                         break;
-                    /*
+                    
                     case 'deconnexion':
-                        // on appel la méthode pictureHome()
+                        // on appel la méthode deconnexion()
                         $this->deconnexion();
                         break;
                   
-                    case 'espacemembre':
-                        // on appel la méthode pictureHome()
+                    case 'membre':
+                        // on appel la méthode membre()
                         $this->membre();
                         break;
-                    */
+                    
                     default:
                         // génère une erreur
                         throw new \Exception("Cette action n'existe pas : ".$_GET['action']);
@@ -108,16 +110,49 @@ class UserController extends Controller
         try {
             if (isset($_GET['id'])) {
 
-
                 $connexionRepository = new ConnexionRepository();
                 $connexion = $connexionRepository->authentification();
 
-                $this->render('form/inscription', [
+                $this->render('form/vue', [
                     'user' => $connexion
                 ]);
             } else {
                 throw new \Exception("l'id est manquant en paramètre");
             }
+        } catch (\Exception $e) {
+            $this->render('errors/default', [
+                'error' => $e->getMessage()
+            ]);
+        }
+    }
+
+    protected function deconnexion()
+    {
+        try {
+            if (isset($_GET['id'])) {
+
+                $decoRepository = new DeconnexionRepository();
+                $deconnexion = $decoRepository->deconnexion();
+
+                $this->render('form/vue', [
+                    'user' => $deconnexion
+                ]);
+            } else {
+                throw new \Exception("l'id est manquant en paramètre");
+            }
+        } catch (\Exception $e) {
+            $this->render('errors/default', [
+                'error' => $e->getMessage()
+            ]);
+        }
+    }
+
+    protected function membre()
+    {
+        try {
+            
+                $this->render('user/profilUser', []);
+           
         } catch (\Exception $e) {
             $this->render('errors/default', [
                 'error' => $e->getMessage()

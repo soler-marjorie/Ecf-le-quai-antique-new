@@ -1,6 +1,6 @@
 <?php require_once _ROOTPATH_.'\templates\header.php'; ?>
 
-<form action="" method="post">
+<form method="post">
     <h2 class="text-center">Connexion</h2>    
 
     <div class="form-group">

@@ -11,22 +11,20 @@
     //fetch pour récuperer qu'un seul livre
     $homes = $query->fetchAll(); //renvoi un tableau associatif juste avec les valeurs nécessaires
 ?>
-
-
+<section>
     <h1>Nos spécialités du moment !</h1>
     </br>
 
-    <section class="images">
+    <div class="images">
 
         <?php foreach ($homes as $home) { ?>
             <img src="uploads/<?php echo $home['src']; ?>" width="200px" title="<?php echo $home['title']; ?>"/>
         
         <?php } ?>
 
-    </section>
-            
-            
-        
+    </div>
+</section>
+    
 
 <?php require_once _ROOTPATH_. '\templates\footer.php'; ?>
 
