@@ -63,6 +63,23 @@ h2, h3 {
 p {
   color: white; }
 
+footer p {
+  color: #fff; }
+
+footer section.ouverture h2 {
+  color: var(--primary);
+  text-align: center; }
+
+footer section.ouverture div.horaires {
+  border: 2px solid yellow;
+  display: flex;
+  align-items: center; }
+  footer section.ouverture div.horaires h3 {
+    color: var(--primary); }
+  footer section.ouverture div.horaires div.heures {
+    border: 1px solid orangered;
+    float: right; }
+
 section.home {
   text-align: center;
   padding: 5%; }

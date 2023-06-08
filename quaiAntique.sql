@@ -111,3 +111,51 @@ CREATE TABLE IF NOT EXISTS contact(
 INSERT INTO contact (name, surname, email, object, message)
 VALUES
 ('mina', 'lechat', 'lechatmina@exemple.fr', 'le test objet', 'le test message');
+
+-- ------------------------------------------
+
+--
+-- structure de la table 'Horaires'
+--
+
+DROP TABLE IF EXISTS schedules;
+CREATE TABLE IF NOT EXISTS schedules(
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    jours VARCHAR(15) NOT NULL,
+    horairesMatin VARCHAR(15) NOT NULL,
+    horairesAprem VARCHAR(15) NOT NULL
+);
+
+--
+-- déchargement des données de la table 'Horaires'
+--
+
+INSERT INTO schedules (jours, horairesMatin, horairesAprem)
+VALUES
+('lundi', "12:00-14:00", "19:00-22:00"),
+('mardi', "12:00-14:00", "19:00-22:00"),
+('mercredi', "fermé", ""),
+('jeudi', "12:00-14:00", "19:00-22:00"),
+('vendredi', "", "19:00-23:00"),
+('samedi', "12:00-14:00", "19:00-22:00"),
+('dimanche', "12:00-14:00", "");
+
+
+-- ------------------------------------------
+
+--
+-- structure de la table 'Booking'
+--
+
+DROP TABLE IF EXISTS booking;
+CREATE TABLE IF NOT EXISTS booking(
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    
+);
+
+--
+-- déchargement des données de la table 'Booking'
+--
+
+INSERT INTO booking ()
+VALUES
