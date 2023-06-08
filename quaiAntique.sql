@@ -75,14 +75,39 @@ CREATE TABLE IF NOT EXISTS user(
     name VARCHAR(55) NOT NULL,
     surname VARCHAR(55),
     email VARCHAR(100),
-    password TEXT
+    password TEXT,
+    role VARCHAR(25)
 );
 
 --
 -- déchargement des données de la table 'user'
 --
 
-INSERT INTO user (name, surname, email, password)
+INSERT INTO user (name, surname, email, password, role)
 VALUES
-('mina', 'lechat', 'lechatmina@exemple.fr', 'moonbinleloup'),
-('levento', 'barbare', 'leventobarbare@exemple.com', 'marcheDanslanuit');
+('mina', 'lechat', 'lechatmina@exemple.fr', 'moonbinleloup', 'admin'),
+('levento', 'barbare', 'leventobarbare@exemple.com', 'marcheDanslanuit', 'user');
+
+-- ------------------------------------------
+
+--
+-- structure de la table 'Contact'
+--
+
+DROP TABLE IF EXISTS contact;
+CREATE TABLE IF NOT EXISTS contact(
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(55) NOT NULL,
+    surname VARCHAR(55),
+    email VARCHAR(100),
+    object VARCHAR(150),
+    message TEXT
+);
+
+--
+-- déchargement des données de la table 'Contact'
+--
+
+INSERT INTO contact (name, surname, email, object, message)
+VALUES
+('mina', 'lechat', 'lechatmina@exemple.fr', 'le test objet', 'le test message');

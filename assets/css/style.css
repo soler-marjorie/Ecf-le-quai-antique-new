@@ -8,7 +8,7 @@
   --light: #f8f9fa;
   --dark: #343a40;
   --bs-nav-link-color: var(--primary);
-  --bs-link-color: var(--secondary);
+  --bs-link-color: var(--info);
   --bs-link-hover-color: var(--primary); }
 
 .btn-primary {
@@ -63,9 +63,11 @@ h2, h3 {
 p {
   color: white; }
 
-section {
-  margin-left: auto;
-  margin-right: auto; }
+section.home {
+  text-align: center;
+  padding: 5%; }
+  section.home img {
+    margin: 2%; }
 
 main form {
   width: 50%;

@@ -17,7 +17,7 @@ require_once 'layout.php' ?>
             </ul>
 
             <!-- logo -->
-            <div class="col-md-3 mb-2 mb-md-0">
+            <div class="logo col-md-3 mb-2 mb-md-0">
                 <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
                     <img src="./assets/img/logo.png" width="200" height="200"></img>
                 </a>

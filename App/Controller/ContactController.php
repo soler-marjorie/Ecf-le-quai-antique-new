@@ -11,6 +11,7 @@ class ContactController extends Controller
 {
     public function route(): void 
     {
+        
         try {
             if (isset($_GET['action'])) {
                 switch ($_GET['action']) {
@@ -45,7 +46,7 @@ class ContactController extends Controller
 
                 $showRepository = new ContactRepository();
                 //on appel notre méthode qui va nous retourner un livre
-                $show = $showRepository->findOneById($id);
+                $show = $showRepository->showForm();
 
                 $this->render('contact/vue', [
                     'contact' => $show

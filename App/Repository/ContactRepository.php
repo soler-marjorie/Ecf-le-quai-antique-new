@@ -8,25 +8,19 @@ use App\Tools\StringTools;
 
 class ContactRepository
 {
-    public function findOneById(int $id) 
+    public function showForm() 
     {
-        
-        //appel de la BDD
-        //on récupère une instance de mysql 
-        $mysql = Mysql::getInstance();
-        $pdo = $mysql->getPDO();
+        if(isset($_POST["message"])){
+            $message = "Ce message vous à été envoyé via la page contact du site exemplesite.fr
+            Nom : " . $_POST["name"] . "
+            Email : " . $_POST["email"] . "
+            Message : " . $_POST["message"];
 
-        $query = $pdo->prepare('SELECT * FROM contact WHERE id = :id');
-        $query->bindValue(':id', $id, $pdo::PARAM_INT);
-        $query->execute();
-        //fetch pour récuperer qu'un seul livre
-        $contact = $query->fetch($pdo::FETCH_ASSOC); //renvoi un tableau associatif juste avec les valeurs nécessaires
-        $contactEntity = new Contact();
-
-        foreach ($contact as $key => $value) {
-            $contactEntity->{'set'.StringTools::toPascalCase($key)}($value);
+            $retour = mail("exempleforschool@gmail.com", $_POST["object"], $message, "From:contact@exemplesite.fr" . "\r\n" . "Reply-to:" . $_POST["email"]);
+            if($retour){
+            echo "l'email à bien été envoyé";
+            }
         }
-
-        return $contactEntity;
+        
     }
 }

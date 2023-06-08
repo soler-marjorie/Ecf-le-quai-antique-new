@@ -11,14 +11,14 @@
     //fetch pour récuperer qu'un seul livre
     $homes = $query->fetchAll(); //renvoi un tableau associatif juste avec les valeurs nécessaires
 ?>
-<section>
+<section class="home">
     <h1>Nos spécialités du moment !</h1>
     </br>
 
     <div class="images">
 
         <?php foreach ($homes as $home) { ?>
-            <img src="uploads/<?php echo $home['src']; ?>" width="200px" title="<?php echo $home['title']; ?>"/>
+            <img src="uploads/<?php echo $home['src']; ?>" width="250px" title="<?php echo $home['title']; ?>"/>
         
         <?php } ?>
 
