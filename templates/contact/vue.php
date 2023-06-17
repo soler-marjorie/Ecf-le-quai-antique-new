@@ -2,9 +2,9 @@
 
 <!-- action désigne la page qui recoit pour traiter les informations-->
 
-<div class="container">
-    <div class=" text-center mt-5 ">
-        <h1 >Contactez nous</h1>
+<section class="container">
+    <div class="titre text-center mt-5 ">
+        <h1>Contactez nous</h1>
     </div>
 
    
@@ -70,7 +70,7 @@
     </div>
 
 
-</div>
+</section>
 
 
 <?php require_once _ROOTPATH_.'\templates\footer.php'; ?>

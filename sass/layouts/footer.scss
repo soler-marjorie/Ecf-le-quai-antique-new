@@ -1,0 +1,38 @@
+footer {
+
+    p {
+        color: #fff;
+    }
+
+    section.ouverture {
+        h2 {
+            color: var(--primary);
+            text-align: center;
+        }
+
+        div.horaires {
+            
+            .container{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                div{
+                    h3{
+                        color: var(--primary);
+                        font-size: medium;
+                    }
+                }
+                .heures{
+                    display: block;
+                    float: right;
+
+                    p{
+                        font-size: small;
+                    }
+                }
+            }
+            
+        }
+    }
+}

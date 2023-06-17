@@ -1,7 +1,10 @@
-@import 'bootstrap.scss';
-@import 'footer.scss';
+@import 'components/bootstrap.scss';
+@import 'components/dropdowns.scss';
+
+@import 'layouts/footer.scss';
 
 @import 'pages/home.scss';
 @import 'pages/contact.scss';
+@import 'pages/booking.scss';
 
 @import 'form/inscription.scss'

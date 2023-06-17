@@ -1,7 +1,25 @@
-main{
-    form{
-        width: 50%;
-        margin-left: auto;
-        margin-right: auto;
+
+section.container{
+    background-image: url('assets/img/fondsite.jpg');
+
+    .titre{
+        padding-bottom: 5%;
     }
+
+    .container{
+        margin-bottom: 5%;
+        
+        form{
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+
+            label{
+                color: #fff;
+            }
+
+            
+        }
+    }
+    
 }

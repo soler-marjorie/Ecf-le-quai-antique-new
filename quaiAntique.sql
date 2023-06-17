@@ -150,12 +150,16 @@ VALUES
 DROP TABLE IF EXISTS booking;
 CREATE TABLE IF NOT EXISTS booking(
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    
+    name VARCHAR(50),
+    surname VARCHAR(50),
+    email VARCHAR(50),
+    nbrPersonnes INT,
+    allergies VARCHAR(50),
+    date DATE,
+    moment VARCHAR(10),
+    schedules TIME
 );
 
---
--- déchargement des données de la table 'Booking'
---
 
-INSERT INTO booking ()
-VALUES
+-- ------------------------------------------
+

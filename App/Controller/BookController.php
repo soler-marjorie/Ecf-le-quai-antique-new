@@ -4,11 +4,10 @@ namespace App\Controller;
 
 use App\Repository\BookingRepository;
 
-class BookingController extends Controller 
+class BookController extends Controller 
 {
     public function route(): void 
-    {
-        
+    {  
         try {
             if (isset($_GET['action'])) {
                 switch ($_GET['action']) {
@@ -41,12 +40,12 @@ class BookingController extends Controller
                 $id = (int)$_GET['id'];
                 //charger le livre par un appel au repository
 
-                $showRepository = new BookingRepository();
+                $bookingRepository = new BookingRepository();
                 //on appel notre méthode qui va nous retourner un livre
-                $show = $showRepository->bookingForm();
+                $booking = $bookingRepository->bookingForm();
 
-                $this->render('contact/vue', [
-                    'contact' => $show
+                $this->render('booking/bookingForm', [
+                    'book' => $booking
                 ]);
             } else {
                 throw new \Exception("l'id est manquant en paramètre");

@@ -63,6 +63,71 @@ h2, h3 {
 p {
   color: white; }
 
+.dropdown-item-danger {
+  color: var(--bs-red); }
+
+.dropdown-item-danger:hover,
+.dropdown-item-danger:focus {
+  color: #fff;
+  background-color: var(--bs-red); }
+
+.dropdown-item-danger.active {
+  background-color: var(--bs-red); }
+
+.btn-hover-light {
+  color: var(--bs-body-color);
+  background-color: var(--bs-body-bg); }
+
+.btn-hover-light:hover,
+.btn-hover-light:focus {
+  color: var(--bs-link-hover-color);
+  background-color: var(--bs-tertiary-bg); }
+
+.cal-month,
+.cal-days,
+.cal-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  align-items: center; }
+
+.cal-month-name {
+  grid-column-start: 2;
+  grid-column-end: 7;
+  text-align: center; }
+
+.cal-weekday,
+.cal-btn {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  padding: 0; }
+
+.cal-btn:not([disabled]) {
+  font-weight: 500;
+  color: var(--bs-emphasis-color); }
+
+.cal-btn:hover,
+.cal-btn:focus {
+  background-color: var(--bs-secondary-bg); }
+
+.cal-btn[disabled] {
+  border: 0;
+  opacity: .5; }
+
+.w-220px {
+  width: 220px; }
+
+.w-280px {
+  width: 280px; }
+
+.w-340px {
+  width: 340px; }
+
+.opacity-10 {
+  opacity: .1; }
+
 footer p {
   color: #fff; }
 
@@ -70,15 +135,18 @@ footer section.ouverture h2 {
   color: var(--primary);
   text-align: center; }
 
-footer section.ouverture div.horaires {
-  border: 2px solid yellow;
+footer section.ouverture div.horaires .container {
   display: flex;
-  align-items: center; }
-  footer section.ouverture div.horaires h3 {
-    color: var(--primary); }
-  footer section.ouverture div.horaires div.heures {
-    border: 1px solid orangered;
+  align-items: center;
+  justify-content: space-between; }
+  footer section.ouverture div.horaires .container div h3 {
+    color: var(--primary);
+    font-size: medium; }
+  footer section.ouverture div.horaires .container .heures {
+    display: block;
     float: right; }
+    footer section.ouverture div.horaires .container .heures p {
+      font-size: small; }
 
 section.home {
   text-align: center;
@@ -86,10 +154,26 @@ section.home {
   section.home img {
     margin: 2%; }
 
-main form {
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto; }
+section.container {
+  background-image: url("assets/img/fondsite.jpg"); }
+  section.container .titre {
+    padding-bottom: 5%; }
+  section.container .container {
+    margin-bottom: 5%; }
+    section.container .container form {
+      width: 50%;
+      margin-left: auto;
+      margin-right: auto; }
+      section.container .container form label {
+        color: #fff; }
+
+.booking_form {
+  width: 30%;
+  margin: auto; }
+  .booking_form_container__groups {
+    display: flex; }
+  .booking_form_container_style {
+    margin: 5%; }
 
 section.form {
   width: 50%; }

@@ -49,6 +49,12 @@ class Controller
                         $userController->route();
                         break;
                     
+                    case 'book':
+                        // on va charger le controller user
+                        $bookController = new BookController();
+                        $bookController->route();
+                        break;
+
                     default:
                         // génère une erreur
                         throw new \Exception("Le controller n'existe pas");

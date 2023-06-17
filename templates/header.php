@@ -43,7 +43,7 @@ require_once 'layout.php' ?>
         <!-- book button -->
         <div class="py-3 mb-4 ">
             <div class="container d-flex flex-wrap justify-content-center">
-                <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto link-body-emphasis text-decoration-none">
+                <a href="./index.php?controller=book&action=show&id=1" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto link-body-emphasis text-decoration-none">
                     <button type="button" class="btn btn-primary">Réserver</button>
                 </a>
             </div>

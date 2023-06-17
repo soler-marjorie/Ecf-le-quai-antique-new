@@ -1,0 +1,21 @@
+.booking{
+
+    &_form{
+        width: 30%;
+        margin: auto;
+
+        &_container{
+            
+            &__groups{
+                display: flex;
+            }
+
+            &_style{
+                margin: 5%;
+
+               
+            }
+            
+        }
+    }
+}
