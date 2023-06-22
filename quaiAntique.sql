@@ -163,3 +163,100 @@ CREATE TABLE IF NOT EXISTS booking(
 
 -- ------------------------------------------
 
+--
+-- structure de la table 'Allergy'
+--
+
+DROP TABLE IF EXISTS allergy;
+CREATE TABLE IF NOT EXISTS allergy(
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50)
+);
+
+--
+-- déchargement des données de la table 'Allergy'
+--
+
+INSERT INTO Allergy (name)
+VALUES
+("aucune"),
+("gluten"),
+("fruits de mer"),
+("poisson"),
+("arachides"),
+("lactose"),
+("soja"),
+("fruit à coque");
+
+-- ------------------------------------------
+
+--
+-- structure de la table 'days'
+--
+
+DROP TABLE IF EXISTS day;
+CREATE TABLE IF NOT EXISTS day(
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50)
+);
+
+--
+-- déchargement des données de la table 'days'
+--
+
+INSERT INTO day (name)
+VALUES
+("Midi"),
+("Soir");
+
+-- ------------------------------------------
+
+--
+-- structure de la table 'moment'
+--
+
+DROP TABLE IF EXISTS momentMorning;
+CREATE TABLE IF NOT EXISTS momentMorning(
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    time VARCHAR(250)
+);
+
+--
+-- déchargement des données de la table 'moment'
+--
+
+INSERT INTO momentMorning (time)
+VALUES
+("12:00"),
+("12:15"),
+("12:30"),
+("12:45"),
+("13:00");
+
+-- ------------------------------------------
+
+--
+-- structure de la table 'moment'
+--
+
+DROP TABLE IF EXISTS momentNight;
+CREATE TABLE IF NOT EXISTS momentNight(
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    time VARCHAR(250)
+);
+
+--
+-- déchargement des données de la table 'moment'
+--
+
+INSERT INTO momentNight (time)
+VALUES
+("19:00"),
+("19:15"), 
+("19:30"), 
+("19:45"), 
+("20:00"), 
+("20:15"), 
+("20:30"), 
+("20:45"), 
+("21:00");

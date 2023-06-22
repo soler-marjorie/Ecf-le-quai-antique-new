@@ -1,0 +1,19 @@
+header.container{
+    .navigation, .logo, .buttons{
+        display: flex;
+    }
+
+    .logo{
+        a{
+            img{
+                border-radius: 50%;
+            }
+        }
+    }
+
+    .buttons{
+        .connexion{
+            margin-right: 5%;
+        }
+    }
+}

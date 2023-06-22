@@ -22,8 +22,8 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="form_lastname">Prénom</label>
-                            <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Entrez le prénom" required="required" data-error="Lastname is required.">
+                            <label for="form_surname">Prénom</label>
+                            <input id="form_surname" type="text" name="surname" class="form-control" placeholder="Entrez le prénom" required="required" data-error="Lastname is required.">
                         </div>
                     </div>
                 </div>

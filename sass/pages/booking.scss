@@ -1,21 +1,28 @@
-.booking{
+form.booking{
+    .block{
+        .groups{
+            margin: auto;
 
-    &_form{
-        width: 30%;
-        margin: auto;
+            .form-group{
+                margin-bottom: 15%;
 
-        &_container{
-            
-            &__groups{
-                display: flex;
+                label, span{
+                    color: var(--primary);
+                }
+ 
             }
 
-            &_style{
-                margin: 5%;
+            .allergies, .days{
+                text-align: center;
 
-               
+                span{
+                    margin-bottom: 3%;
+                }
             }
-            
+
+            .button{
+                text-align: center;
+            }
         }
     }
 }

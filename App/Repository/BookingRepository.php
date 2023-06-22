@@ -3,6 +3,7 @@
 
 namespace App\Repository;
 
+use App\Model\Allergy;
 use App\Model\Booking;
 use App\Db\Mysql;
 
@@ -15,6 +16,8 @@ class BookingRepository
         //on se connecte à la bdd
         $mysql = Mysql::getInstance();
         $pdo = $mysql->getPDO();
+
+        
         
     } 
 }

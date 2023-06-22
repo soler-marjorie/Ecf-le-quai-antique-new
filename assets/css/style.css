@@ -148,11 +148,34 @@ footer section.ouverture div.horaires .container {
     footer section.ouverture div.horaires .container .heures p {
       font-size: small; }
 
+header.container .navigation, header.container .logo, header.container .buttons {
+  display: flex; }
+
+header.container .logo a img {
+  border-radius: 50%; }
+
+header.container .buttons .connexion {
+  margin-right: 5%; }
+
 section.home {
   text-align: center;
   padding: 5%; }
   section.home img {
     margin: 2%; }
+
+section.formules {
+  text-align: center; }
+  section.formules h1 {
+    text-decoration: underline; }
+  section.formules h2 {
+    margin: 2%;
+    color: aquamarine; }
+  section.formules h3 {
+    color: white; }
+  section.formules hr {
+    width: 50px;
+    color: white;
+    margin: auto; }
 
 section.container {
   background-image: url("assets/img/fondsite.jpg"); }
@@ -167,13 +190,21 @@ section.container {
       section.container .container form label {
         color: #fff; }
 
-.booking_form {
-  width: 30%;
+form.booking .block .groups {
   margin: auto; }
-  .booking_form_container__groups {
-    display: flex; }
-  .booking_form_container_style {
-    margin: 5%; }
+  form.booking .block .groups .form-group {
+    margin-bottom: 15%; }
+    form.booking .block .groups .form-group label, form.booking .block .groups .form-group span {
+      color: var(--primary); }
+  form.booking .block .groups .allergies, form.booking .block .groups .days {
+    text-align: center; }
+    form.booking .block .groups .allergies span, form.booking .block .groups .days span {
+      margin-bottom: 3%; }
+  form.booking .block .groups .button {
+    text-align: center; }
 
 section.form {
   width: 50%; }
+
+form.connexion .row h2 {
+  color: var(--primary); }

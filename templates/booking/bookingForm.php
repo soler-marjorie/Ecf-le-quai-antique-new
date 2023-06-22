@@ -1,78 +1,103 @@
-<?php require_once _ROOTPATH_.'\templates\header.php'; ?>
+<?php 
 
-<div class="booking">
-    <form action="POST" class="booking_form">
-        <div class="booking_container">
+require_once _ROOTPATH_.'\templates\header.php'; 
 
-            <div class="form_group">
-                <label for="form_name">Nom</label>
-                <input id="form_name" type="text" name="name" class="form-control" placeholder="Entrez le nom" required="required" data-error="Firstname is required.">
+use App\Db\Mysql;
+
+//on récupère une instance de mysql 
+$mysql = Mysql::getInstance();
+$pdo = $mysql->getPDO();
+
+$query = $pdo->prepare('SELECT * FROM allergy');
+$query->execute();
+$allergies = $query->fetchAll(); 
+
+$query = $pdo->prepare('SELECT * FROM day');
+$query->execute();
+$days = $query->fetchAll();
+
+$query = $pdo->prepare('SELECT * FROM momentmorning');
+$query->execute();
+$morning = $query->fetchAll();
+
+$query = $pdo->prepare('SELECT * FROM momentnight');
+$query->execute();
+$night = $query->fetchAll();
+?>
+
+<form class="container booking">
+
+    <div class="row block">
+        <div class="col-sm-3 groups">
+            <div class="form-group name">
+                <label for="form-name">Nom</label>
+                <input id="form-name" name="name" class="form-control" type="text" placeholder="Entrez votre nom" required="required" data-error="name is required." autocomplete="off">
             </div>
 
-            <div class="form_group">
-                <label for="form_surname">Prénom</label>
-                <input id="form_surname" type="text" name="surname" class="form-control" placeholder="Entrez le prénom" required="required" data-error="Lastname is required.">
-            </div>
-            
-           
-            <div class="form_group">
-                <label for="form_email">Email</label>
-                <input id="form_email" type="email" name="email" class="form-control" placeholder="Entrez le mail" required="required" data-error="Valid email is required.">   
-            </div>
-           
-            <div class="form_group">
-                <label for="form_person">Nombre de personnes</label>
-                <input id="form_person" type="number" name="person" class="form-control" placeholder="Entrez le nombre de personnes" required="required" data-error="number person email is required.">   
+            <div class="form-group surname">
+                <label for="form-surname">Prénom</label>
+                <input id="form-surname" name="surname" class="form-control" type="text" placeholder="Entrez votre prénom" required="required" data-error="surname is required.">
             </div>
 
-            <div class="form_group">
-                <label for="form_allergy">Selectionnez des allergies:</label>
-                <select name="allergy" id="form_allergy">
-                    <input type="checkbox" name="Allergy" value="Aucune">Aucune</input>
-                    <input type="checkbox" name="Allergy" value="Gluten">Gluten</input>
-                    <input type="checkbox" name="Allergy" value="Moutarde">Moutarde</input>
-                    <input type="checkbox" name="Allergy" value="Crustacés">Crustacés</input>
-                    <input type="checkbox" name="Allergy" value="oeufs">oeufs</input>
-                    <input type="checkbox" name="Allergy" value="poissons">poissons</input>
-                    <input type="checkbox" name="Allergy" value="arachides">arachides</input>
-                    <input type="checkbox" name="Allergy" value="lactose">lactose</input>
-                    <input type="checkbox" name="Allergy" value="fruitsCoques">fruits à coques</input>
-</select>
+            <div class="form-group email">
+                <label for="form-email">Email</label>
+                <input id="form-email" name="email" class="form-control" type="email" placeholder="Entrez votre email" required="required" data-error="email is required." autocomplete="off">
             </div>
 
-            <div class="form_group">
-                <label for="form_date">Sélectionnez une date</label>
-                <input type="date" name="date" id="form_date">
+            <div class="form-group people">
+                <label for="form-numberPeople">Nombre de personnes</label>
+                <input id="form-numberPeople" name="numberPeople" class="form-control" type="number" placeholder="Entrez le nombre de personnes" required="required" data-error="number of people is required.">
             </div>
 
-            <div class="form_group">
-                <label for="form_day">Veuillez choisir une horaire</label>
-                <select name="day" id="form_day">
-                    <optgroup label="Matin" name="matin">
-                        <option value="schedules1">12:00</option>
-                        <option value="schedules2">12:15</option>
-                        <option value="schedules3">12:30</option>
-                        <option value="schedules4">12:45</option>
-                        <option value="schedules5">13:00</option>
-                    </optgroup>
+            <div class="form-group allergies">
+                <span>Selectionnez vos allergies</span>
 
-                    <optgroup label="Soir" name="soir">
-                        <option value="schedules6">19:00</option>
-                        <option value="schedules7">19:15</option>
-                        <option value="schedules8">19:30</option>
-                        <option value="schedules9">19:45</option>
-                        <option value="schedules10">20:00</option>
-                        <option value="schedules11">20:15</option>
-                        <option value="schedules12">20:30</option>
-                        <option value="schedules13">20:45</option>
-                        <option value="schedules14">21:00</option>
-                    </optgroup>
-                </select>
+                <div id="reservation_form_allergy">
+                    <?php foreach($allergies as $allergy){ ?>
+                        <div>
+                            <input type="checkbox" id="form_<?php echo $allergy['name']; ?>" name="<?php echo $allergy['name']; ?>" value="<?php echo $allergy['id']; ?>">
+                        </div>
+                        <div>
+                            <label for="form_<?php echo $allergy['name']; ?>"><?php echo $allergy['name']; ?></label>
+                        </div>
+                    <?php } ?>
+                </div>
             </div>
 
-        </div> 
-    </form>
-</div>
+            <div class="form-group date">
+                <label for="form-date">Choisissez une date</label>
+                <input id="form-date" name="date" class="form-control" type="date" placeholder="Entrez une date" required="required" data-error="date is required.">
+            </div>
 
+            <div class="form-group days">
+                <span>Selectionnez une horaire</span>
+
+                <div id="reservation_form_day">
+                    <select name="form-day" id="form-day">
+                        <?php foreach($days as $day){ ?>
+                            <option value="<?php echo $day['name']; ?>"><?php echo $day['name']; ?></option>
+                            
+                            <?php if($day['name'] === "Midi"){ 
+                                foreach($morning as $momentmorning){?>
+                                    <option value="<?php echo $momentmorning['time']; ?>"><?php echo $momentmorning['time']; ?></option>
+                                <?php }
+                            }else{ 
+                                foreach($night as $momentnight){?>
+                                    <option value="<?php echo $momentnight['time']; ?>"><?php echo $momentnight['time']; ?></option>
+                                <?php } 
+                            } ?>
+                        <?php } ?>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group button">
+                <button type="button" class="btn btn-primary">Réserver</button>
+            </div>
+        </div>
+
+    </div>
+
+</form>
 
 <?php require_once _ROOTPATH_.'\templates\footer.php'; ?>

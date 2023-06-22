@@ -14,9 +14,8 @@
 ?>
 
 <section class="formules">
-    
     <?php foreach ($menus as $menu) {?>
-        
+    
         <h1><?php echo $menu['formule']; ?></h1>
         <h2><?php echo $menu['plat']; ?></h2>
 
@@ -25,8 +24,11 @@
             <p><?php echo $menu['description']; ?></p>
             <p><?php echo $menu['price']; ?>€</p>
         </div>
+        <hr>
         
+  
     <?php } ?>
+    
 
 </section>
 
