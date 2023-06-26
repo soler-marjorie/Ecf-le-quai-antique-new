@@ -2,39 +2,39 @@
    require _ROOTPATH_.'\templates\header.php';
 ?>
 
-<div class="container-login">
-    <div class="wrapper-login">
-        <h2>Inscription</h2>
+<section class="container register">
+    <h2>Inscription</h2>
 
-        <form id="register-form" method="POST" action="">
+    <form class="row" id="register-form" method="POST" action="">
 
-        <div>
-            <div>
-                <label for="surname"></label>
-                <input type="text" placeholder="Nom de famille" name="surname" id="surname">
-            </div>
-            
-            <div>
-                <label for="name"></label>
-                <input type="text" placeholder="Prénom" name="name" id="name">
-            </div>
+        <div class="form-group col-md-3">
+            <label for="surname">Nom</label>
+            <input type="text" placeholder="Nom de famille" name="surname" id="surname" class="form-control" required="required" autocomplete="off">
+        </div>
+        
+        <div class="form-group col-md-3">
+            <label for="name">Prénom</label>
+            <input type="text" placeholder="Prénom" name="name" id="name" class="form-control" required="required" autocomplete="off">
+        </div>
+
+        <div class="form-group col-md-3">
+            <label for="email">Email</label>
+            <input type="email" placeholder="Email" name="email" class="form-control" required="required" autocomplete="off">
         </div>
             
-        <div>
-            <label for="email"></label>
-            <input type="email" placeholder="Email" name="email">
+        <div class="form-group col-md-3">
+            <label for="password">Mot de passe</label>
+            <input type="password" placeholder="Entrez le mot de passe" name="password" class="form-control" required="required" autocomplete="off">
         </div>
-            
-        <div>
-            <label for="password"></label>
-            <input type="password" placeholder="Mot de passe" name="password">
+
+        <div class="button">
+            <button id="submit" type="submit" value="submit" class="btn btn-primary">Envoyer</button>
         </div>
-           
 
-        <button id="submit" type="submit" value="submit">Envoyer</button>
+    </form>
 
-        </form>
-    </div>
-</div>
+    
+        
+</section>
 
 <?php require_once _ROOTPATH_.'\templates\footer.php'; ?>

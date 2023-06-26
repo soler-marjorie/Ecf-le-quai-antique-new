@@ -1,14 +1,40 @@
-.connexion{
-    .container{
-        .row{
-            h2{
-                color: var(--primary);
-            }
+section.connexion{
+    display: flex;
+    align-items: center;
 
-           .form-group{
-            margin:auto;
-           }
+    .row{
+        width: 50%;
+    }
+
+    .picture{
+        justify-content: end;
+        
+        img{
+            
+            width: 450px;
         }
     }
-    
+
+    .form{
+        h2, label{
+            color: var(--primary);
+        }
+
+        .form-group{
+        margin: auto;
+        }
+
+        .button{
+            text-align: center;
+
+            .btn{
+                margin: 4%;
+                
+            }
+        }
+    }  
+}
+
+.inscription{
+    margin: 6%;
 }

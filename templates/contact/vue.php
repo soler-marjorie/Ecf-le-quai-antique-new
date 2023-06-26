@@ -2,14 +2,14 @@
 
 <!-- action désigne la page qui recoit pour traiter les informations-->
 
-<section class="container">
+<section class="container contact">
     <div class="titre text-center mt-5 ">
         <h1>Contactez nous</h1>
     </div>
 
    
     <div class = "container">
-        <form id="contact-form" role="form" method="POST" action="">
+        <form id="contact-form" role="form" method="POST" action="https://formspree.io/f/xvojpkjg">
             <div class="controls">
                 <div class="row">
                     <div class="col-md-6">

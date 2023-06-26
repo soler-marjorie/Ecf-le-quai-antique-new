@@ -177,18 +177,17 @@ section.formules {
     color: white;
     margin: auto; }
 
-section.container {
-  background-image: url("assets/img/fondsite.jpg"); }
-  section.container .titre {
-    padding-bottom: 5%; }
-  section.container .container {
-    margin-bottom: 5%; }
-    section.container .container form {
-      width: 50%;
-      margin-left: auto;
-      margin-right: auto; }
-      section.container .container form label {
-        color: #fff; }
+section.contact .titre {
+  padding-bottom: 5%; }
+
+section.contact .container {
+  margin-bottom: 5%; }
+  section.contact .container form {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto; }
+    section.contact .container form label {
+      color: #fff; }
 
 form.booking .block .groups {
   margin: auto; }
@@ -203,8 +202,40 @@ form.booking .block .groups {
   form.booking .block .groups .button {
     text-align: center; }
 
-section.form {
-  width: 50%; }
+section.register h2 {
+  color: var(--primary);
+  margin: 3%;
+  text-align: center; }
 
-form.connexion .row h2 {
-  color: var(--primary); }
+section.register form {
+  display: block; }
+  section.register form .form-group {
+    margin: auto;
+    margin-bottom: 1%; }
+    section.register form .form-group label {
+      color: var(--primary); }
+
+section.register .button {
+  text-align: center;
+  margin-top: 3%; }
+
+section.connexion {
+  display: flex;
+  align-items: center; }
+  section.connexion .row {
+    width: 50%; }
+  section.connexion .picture {
+    justify-content: end; }
+    section.connexion .picture img {
+      width: 450px; }
+  section.connexion .form h2, section.connexion .form label {
+    color: var(--primary); }
+  section.connexion .form .form-group {
+    margin: auto; }
+  section.connexion .form .button {
+    text-align: center; }
+    section.connexion .form .button .btn {
+      margin: 4%; }
+
+.inscription {
+  margin: 6%; }

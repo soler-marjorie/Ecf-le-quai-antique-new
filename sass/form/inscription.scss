@@ -1,3 +1,26 @@
-section.form{
-    width: 50%;
+section.register{
+
+    h2{
+        color: var(--primary);
+        margin: 3%;
+        text-align: center;
+    }
+
+    form{
+        display: block;
+        
+        .form-group{
+            margin: auto;
+            margin-bottom: 1%;
+
+            label{
+                color: var(--primary);
+            }
+        }
+    }
+
+    .button{
+        text-align: center;
+        margin-top: 3%;
+    }
 }
