@@ -10,6 +10,7 @@ class ContactRepository
 {
     public function showForm() 
     {
+        /*
         if(isset($_POST["message"])){
             $message = "Ce message vous à été envoyé via la page contact du site exemplesite.fr
             Nom : " . $_POST["name"] . "
@@ -20,7 +21,7 @@ class ContactRepository
             if($retour){
             echo "l'email à bien été envoyé";
             }
-        }
+        }*/
         
     }
 }

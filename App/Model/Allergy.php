@@ -4,7 +4,7 @@ namespace App\Model;
 
 class Allergy{
     protected ?int $id = null;
-    protected string $name;
+    protected string $ingredients;
 
     /**
      * Get the value of id
@@ -25,19 +25,19 @@ class Allergy{
     }
 
     /**
-     * Get the value of name
+     * Get the value of ingredients
      */
-    public function getName(): string
+    public function getIngredients(): string
     {
-        return $this->name;
+        return $this->ingredients;
     }
 
     /**
-     * Set the value of name
+     * Set the value of ingredients
      */
-    public function setName(string $name): self
+    public function setIngredients(string $ingredients): self
     {
-        $this->name = $name;
+        $this->ingredients = $ingredients;
 
         return $this;
     }

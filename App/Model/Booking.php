@@ -8,13 +8,13 @@ class Booking{
     protected string $name;
     protected string $surname;
     protected string $email;
-    protected int $nbrPersonnes;
+    protected int $nbrPeople;
     protected string $allergies;
-    protected int $date;
+    protected string $date;
     protected string $moment;
-    protected int $schedules;
+    protected string $schedules;
 
-    
+
 
     /**
      * Get the value of id
@@ -89,19 +89,19 @@ class Booking{
     }
 
     /**
-     * Get the value of nbrPersonnes
+     * Get the value of nbrPeople
      */
-    public function getNbrPersonnes(): int
+    public function getNbrPeople(): int
     {
-        return $this->nbrPersonnes;
+        return $this->nbrPeople;
     }
 
     /**
-     * Set the value of nbrPersonnes
+     * Set the value of nbrPeople
      */
-    public function setNbrPersonnes(int $nbrPersonnes): self
+    public function setNbrPeople(int $nbrPeople): self
     {
-        $this->nbrPersonnes = $nbrPersonnes;
+        $this->nbrPeople = $nbrPeople;
 
         return $this;
     }
@@ -127,7 +127,7 @@ class Booking{
     /**
      * Get the value of date
      */
-    public function getDate(): int
+    public function getDate(): string
     {
         return $this->date;
     }
@@ -135,7 +135,7 @@ class Booking{
     /**
      * Set the value of date
      */
-    public function setDate(int $date): self
+    public function setDate(string $date): self
     {
         $this->date = $date;
 
@@ -163,7 +163,7 @@ class Booking{
     /**
      * Get the value of schedules
      */
-    public function getSchedules(): int
+    public function getSchedules(): string
     {
         return $this->schedules;
     }
@@ -171,7 +171,7 @@ class Booking{
     /**
      * Set the value of schedules
      */
-    public function setSchedules(int $schedules): self
+    public function setSchedules(string $schedules): self
     {
         $this->schedules = $schedules;
 

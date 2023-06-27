@@ -2,10 +2,6 @@
 
 namespace App\Repository;
 
-use App\Model\User;
-use App\Db\Mysql;
-use App\Tools\StringTools;
-
 
 class MembreRepository
 {

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\BookingRepository;
+use App\Repository\ValidateRepository;
 
 class BookController extends Controller 
 {
@@ -16,6 +17,11 @@ class BookController extends Controller
                         $this->show();
                         break;
                     
+                    case 'check':
+                        // on appel la méthode check()
+                        $this->check();
+                        break;
+
                     default:
                         // génère une erreur
                         throw new \Exception("Cette action n'existe pas : ".$_GET['action']);
@@ -46,6 +52,31 @@ class BookController extends Controller
 
                 $this->render('booking/bookingForm', [
                     'book' => $booking
+                ]);
+            } else {
+                throw new \Exception("l'id est manquant en paramètre");
+            }
+        } catch (\Exception $e) {
+            $this->render('errors/default', [
+                'error' => $e->getMessage()
+            ]);
+        }
+    }
+
+    protected function check()
+    {     
+        try {
+            if (isset($_GET['id'])) {
+
+                $id = (int)$_GET['id'];
+                //charger le livre par un appel au repository
+
+                $validateRepository = new ValidateRepository();
+                //on appel notre méthode qui va nous retourner un livre
+                $validate = $validateRepository->validate($id);
+
+                $this->render('booking/validate', [
+                    'book' => $validate
                 ]);
             } else {
                 throw new \Exception("l'id est manquant en paramètre");

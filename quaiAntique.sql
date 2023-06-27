@@ -153,10 +153,9 @@ CREATE TABLE IF NOT EXISTS booking(
     name VARCHAR(50),
     surname VARCHAR(50),
     email VARCHAR(50),
-    nbrPersonnes INT,
+    nbrPeople INT,
     allergies VARCHAR(50),
     date DATE,
-    moment VARCHAR(10),
     schedules TIME
 );
 
@@ -170,14 +169,14 @@ CREATE TABLE IF NOT EXISTS booking(
 DROP TABLE IF EXISTS allergy;
 CREATE TABLE IF NOT EXISTS allergy(
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50)
+    ingredients VARCHAR(50)
 );
 
 --
 -- déchargement des données de la table 'Allergy'
 --
 
-INSERT INTO Allergy (name)
+INSERT INTO Allergy (ingredients)
 VALUES
 ("aucune"),
 ("gluten"),
@@ -190,26 +189,6 @@ VALUES
 
 -- ------------------------------------------
 
---
--- structure de la table 'days'
---
-
-DROP TABLE IF EXISTS day;
-CREATE TABLE IF NOT EXISTS day(
-    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50)
-);
-
---
--- déchargement des données de la table 'days'
---
-
-INSERT INTO day (name)
-VALUES
-("Midi"),
-("Soir");
-
--- ------------------------------------------
 
 --
 -- structure de la table 'moment'
