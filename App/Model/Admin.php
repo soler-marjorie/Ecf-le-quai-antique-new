@@ -2,14 +2,12 @@
 
 namespace App\Model;
 
-class User
-{
+class Admin{
+
     private ?int $id = null;
-    private string $name;
-    private string $surname;
+    private string $pseudo;
     private string $email;
     private string $password;
-    private string $role;
 
     /**
      * Get the value of id
@@ -30,37 +28,19 @@ class User
     }
 
     /**
-     * Get the value of name
+     * Get the value of pseudo
      */
-    public function getName(): string
+    public function getPseudo(): string
     {
-        return $this->name;
+        return $this->pseudo;
     }
 
     /**
-     * Set the value of name
+     * Set the value of pseudo
      */
-    public function setName(string $name): self
+    public function setPseudo(string $pseudo): self
     {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of surname
-     */
-    public function getSurname(): string
-    {
-        return $this->surname;
-    }
-
-    /**
-     * Set the value of surname
-     */
-    public function setSurname(string $surname): self
-    {
-        $this->surname = $surname;
+        $this->pseudo = $pseudo;
 
         return $this;
     }
@@ -97,25 +77,6 @@ class User
     public function setPassword(string $password): self
     {
         $this->password = $password;
-
-        return $this;
-    }
-
-
-    /**
-     * Get the value of role
-     */
-    public function getRole(): string
-    {
-        return $this->role;
-    }
-
-    /**
-     * Set the value of role
-     */
-    public function setRole(string $role): self
-    {
-        $this->role = $role;
 
         return $this;
     }

@@ -38,7 +38,7 @@ class Controller
                         break;
 
                     case 'contact':
-                        // on va charger le controller user
+                        // on va charger le controller contact
                         $contactController = new ContactController();
                         $contactController->route();
                         break;
@@ -50,9 +50,15 @@ class Controller
                         break;
                     
                     case 'book':
-                        // on va charger le controller user
+                        // on va charger le controller booking
                         $bookController = new BookController();
                         $bookController->route();
+                        break;
+
+                    case 'crud':
+                        // on va charger le controller admin
+                        $crudController = new CrudController();
+                        $crudController->route();
                         break;
 
                     default:

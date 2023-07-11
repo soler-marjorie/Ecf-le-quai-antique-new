@@ -19,7 +19,6 @@
 
         <?php foreach ($homes as $home) { ?>
             <img src="uploads/<?php echo $home['src']; ?>" width="250px" title="<?php echo $home['title']; ?>"/>
-        
         <?php } ?>
 
     </div>

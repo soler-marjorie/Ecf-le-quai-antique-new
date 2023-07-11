@@ -21,7 +21,7 @@
             </div>
 
             <div class="form-group button">
-                <button type="submit" class="btn btn-primary btn-block">Connexion</button>
+                <button name="connexion" type="submit" class="btn btn-primary btn-block">Connexion</button>
             </div> 
 
         </form>

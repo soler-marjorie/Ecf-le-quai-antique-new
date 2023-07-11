@@ -34,7 +34,7 @@ require_once 'layout.php' ?>
                         <button type="button" class="btn btn-outline-primary me-2">se connecter</button>
                     </a>
                 <?php else: ?>
-                    <a href="./index.php?controller=user&action=membre&id=1"><span>Mon profil</span></a>
+                    <a href="./index.php?controller=user&action=membre&id=1"><span>Mon espace</span></a>
                     <a href="./index.php?controller=user&action=deconnexion&id=1" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto link-body-emphasis text-decoration-none">
                         <button type="button" class="btn btn-outline-primary me-2">se déconnecter</button>  
                     </a>

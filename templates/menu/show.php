@@ -28,8 +28,6 @@
         
   
     <?php } ?>
-    
-
 </section>
 
 <?php require_once _ROOTPATH_.'\templates\footer.php'; ?>
