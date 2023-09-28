@@ -239,3 +239,34 @@ section.connexion {
 
 .inscription {
   margin: 6%; }
+
+#CRUD {
+  background-color: white; }
+  #CRUD h2 {
+    text-align: center;
+    padding: 5%;
+    text-decoration: underline; }
+  #CRUD section {
+    margin: 7%; }
+    #CRUD section h3 {
+      text-align: center;
+      margin-bottom: 2rem; }
+    #CRUD section table thead tr .add a {
+      width: 13rem;
+      float: right;
+      margin-bottom: 2em; }
+    #CRUD section table thead tr th {
+      border-bottom: 1px solid #ddd; }
+    #CRUD section table thead tr .editSupp {
+      text-align: right; }
+    #CRUD section table tbody tr td.btn {
+      display: flex;
+      float: right; }
+    #CRUD section table tbody tr:hover {
+      background-color: rgba(80, 144, 255, 0.229); }
+  #CRUD section#galerie table thead {
+    padding-top: 3%; }
+  #CRUD section#menu h4 {
+    text-align: center; }
+  #CRUD section#menu table thead tr h5 {
+    font-weight: 800; }

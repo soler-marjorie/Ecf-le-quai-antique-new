@@ -1,6 +1,6 @@
 RewriteEngine On
 
-RewriteRule ^Accueil/$ /index.php?controller=home&action=show&src=1
+RewriteRule ^Accueil/$ Projet_marjo/QuaiAntique/index.php?controller=home&action=show&id=1
 
 RewriteRule ^Lacarte/$ /index.php?controller=menu&action=show&id=1
 

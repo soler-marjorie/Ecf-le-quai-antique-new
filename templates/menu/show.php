@@ -8,7 +8,6 @@
 
     $query = $pdo->prepare('SELECT * FROM menu');
     $query->execute();
-    //fetch pour récuperer qu'un seul livre
     $menus = $query->fetchAll(); //renvoi un tableau associatif juste avec les valeurs nécessaires
    
 ?>

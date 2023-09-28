@@ -17,6 +17,7 @@ class HomeController extends Controller
                     case 'show':
                         // on appel la méthode show()
                         $this->show();
+                        
                         break;
                     
                     default:
@@ -44,7 +45,7 @@ class HomeController extends Controller
                 //charger le livre par un appel au repository
 
                 $showRepository = new HomeRepository();
-                //on appel notre méthode qui va nous retourner un livre
+                //on appel notre méthode qui va nous retourner une image
                 $show = $showRepository->findOneById($id);
 
                 $this->render('home/picture', [

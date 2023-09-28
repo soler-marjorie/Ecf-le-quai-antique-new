@@ -6,7 +6,7 @@ controlleur pour page statique comme home ou about
 namespace App\Controller;
 
 use App\Repository\ReadRepository;
-use App\Repository\AdminRepository;
+use App\Repository\AddRepository;
 
 class CrudController extends Controller 
 {
@@ -19,6 +19,11 @@ class CrudController extends Controller
                     case 'read':
                         // on appel la méthode show()
                         $this->read();
+                        break;
+
+                    case 'add':
+                        // on appel la méthode show()
+                        $this->add();
                         break;
                     
                     
@@ -52,6 +57,31 @@ class CrudController extends Controller
                 $this->render('AdminCRUD/admin', [
                     'admin' => $read
                 ]);
+            } else {
+                throw new \Exception("l'id est manquant en paramètre");
+            }
+        } catch (\Exception $e) {
+            $this->render('errors/default', [
+                'error' => $e->getMessage()
+            ]);
+        }
+    }
+
+    protected function add()
+    {
+        
+        try {
+            if (isset($_GET['id'])) {
+
+                $id = (int)$_GET['id'];
+
+                $addRepository = new AddRepository();
+                $add = $addRepository->add();
+
+                $this->render('AdminCRUD/add/addGalerie', [
+                    'admin' => $add
+                ]);
+
             } else {
                 throw new \Exception("l'id est manquant en paramètre");
             }
