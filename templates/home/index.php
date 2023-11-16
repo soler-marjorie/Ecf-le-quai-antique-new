@@ -6,15 +6,14 @@
    
 <section class="home">
     <h1>Nos spécialités du moment !</h1>
+    
     </br>
-    <img src="uploads/<?=$homes->getSrc(); ?>" width="250px" title="<?=$homes->getTitle(); ?>"/>
+
     <div class="images">
 
         <?php foreach($home as $homes){ ?>
-            <img src="uploads/<?=$homes->getSrc(); ?>" width="250px" title="<?=$homes->getTitle(); ?>"/>
+            <img src="uploads/<?=$homes['src']; ?>" width="250px" title="<?=$homes['title']; ?>"/>
         <?php } ?>
-            
-      
 
     </div>
 </section>

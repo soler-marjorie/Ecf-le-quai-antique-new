@@ -5,7 +5,8 @@ controlleur pour page statique comme home ou about
 
 namespace App\Controller;
 
-use App\Repository\ContactRepository;
+use App\Db\Mysql;
+
 
 class ContactController extends Controller 
 {
@@ -37,27 +38,7 @@ class ContactController extends Controller
     }
 
     protected function show()
-    {     
-        try {
-            if (isset($_GET['id'])) {
-
-                $id = (int)$_GET['id'];
-                //charger le livre par un appel au repository
-
-                $showRepository = new ContactRepository();
-                //on appel notre méthode qui va nous retourner un livre
-                $show = $showRepository->showForm();
-
-                $this->render('contact/vue', [
-                    'contact' => $show
-                ]);
-            } else {
-                throw new \Exception("l'id est manquant en paramètre");
-            }
-        } catch (\Exception $e) {
-            $this->render('errors/default', [
-                'error' => $e->getMessage()
-            ]);
-        }
+    {   
+        $this->render('contact/index', []);
     }
 }

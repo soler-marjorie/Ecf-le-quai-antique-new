@@ -9,22 +9,27 @@
 
         <div class="form-group col-md-3">
             <label for="surname">Nom</label>
-            <input type="text" placeholder="Nom de famille" name="surname" id="surname" class="form-control" required="required" autocomplete="off">
+            <input type="text" name="surname" id="surname" class="form-control" placeholder="Nom de famille" required="required" autocomplete="off">
         </div>
         
         <div class="form-group col-md-3">
             <label for="name">Prénom</label>
-            <input type="text" placeholder="Prénom" name="name" id="name" class="form-control" required="required" autocomplete="off">
+            <input type="text" name="name" id="name" class="form-control" placeholder="Prénom" required="required" autocomplete="off">
         </div>
 
         <div class="form-group col-md-3">
             <label for="email">Email</label>
-            <input type="email" placeholder="Email" name="email" class="form-control" required="required" autocomplete="off">
+            <input type="email" name="email" class="form-control" placeholder="Email" required="required" autocomplete="off">
         </div>
             
         <div class="form-group col-md-3">
             <label for="password">Mot de passe</label>
-            <input type="password" placeholder="Entrez le mot de passe" name="password" class="form-control" required="required" autocomplete="off">
+            <input type="password" name="password" class="form-control" placeholder="Entrez le mot de passe" required="required" autocomplete="off">
+        </div>
+
+        <div class="form-group col-md-3">
+            <label for="confpassword">Confirmation du mot de passe</label>
+            <input type="password" name="confpassword" class="form-control" placeholder="Confirmez le mot de passe" required="required" autocomplete="off">
         </div>
 
         <div class="button">

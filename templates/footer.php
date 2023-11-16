@@ -1,15 +1,3 @@
-<?php 
-use App\Db\Mysql; 
-//on se connecte à la bdd
-$mysql = Mysql::getInstance();
-$pdo = $mysql->getPDO();
-
-$query = $pdo->prepare("SELECT * FROM schedules");
-
-$query->execute();
-
-$schedules = $query->fetchAll();
-?>
     </main>
     
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
@@ -18,24 +6,9 @@ $schedules = $query->fetchAll();
         <!--Horaires d'ouvertures-->
         <section class="ouverture col-md-3">
             <h2>Nos </br> horaires d'ouvertures</h2>
-
-            <div class="horaires">
-                <?php foreach ($schedules as $schedule) {?>
-                    <div class="container">
-                        <div>
-                            <h3><?php echo $schedule['jours']; ?></h3>
-                        </div>
-                    
             
-                        <div class="heures">
-                            <p><?php echo $schedule['horairesMatin']; ?></p>
-                            <p><?php echo $schedule['horairesAprem']; ?></p>
-                        </div>
-                    </div>
-                      
-                
-                <?php } ?>
-            </div>
+            <?php include_once('schedules/index.php')?>
+
         </section>
 
         <ul class="nav col-md-3 justify-content-end">

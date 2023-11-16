@@ -9,7 +9,7 @@
 
    
     <div class = "container">
-        <form id="contact-form" role="form" method="POST" action="https://formspree.io/f/xvojpkjg">
+        <form id="contact-form" role="form" method="POST" action="https://formspree.io/f/mzblkdda">
             <div class="controls">
                 <div class="row">
                     <div class="col-md-6">
@@ -46,7 +46,6 @@
                                 <option >Annuler une réservation</option>
                                 <option >autres</option>
                             </select>
-                    
                         </div>
                     </div>
                 </div>

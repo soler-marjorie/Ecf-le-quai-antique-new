@@ -1,7 +1,7 @@
 RewriteEngine On
 
-RewriteRule ^Accueil/$ Projet_marjo/QuaiAntique/index.php?controller=home&action=show&id=1
+RewriteRule ^Accueil/$ Projet_marjo/QuaiAntique/index.php?controller=home&action=show
 
-RewriteRule ^Lacarte/$ /index.php?controller=menu&action=show&id=1
+RewriteRule ^Lacarte/$ /index.php?controller=menu&action=show
 
-RewriteRule ^Contact/$ /index.php?controller=contact&action=show&id=1
+RewriteRule ^Contact/$ /index.php?controller=contact&action=show

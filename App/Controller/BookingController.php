@@ -1,15 +1,47 @@
 <?php
+/*
+controlleur pour page statique comme home ou about 
+*/
 
-
-namespace App\Repository;
+namespace App\Controller;
 
 use App\Db\Mysql;
 
-
-class BookingRepository
+class BookingController extends Controller
 {
-   
-    public function bookingForm()
+    public function route(): void 
+    {
+        try {
+            if (isset($_GET['action'])) {
+                switch ($_GET['action']) {
+                    case 'booking':
+                        // on appel la méthode booking()
+                        $this->booking();
+
+                        $this->render('booking/booking', []);
+                        break;
+
+                    case 'validate':
+                        $this->render('booking/validate', []);
+                        break;
+                    
+                    default:
+                        // génère une erreur
+                        throw new \Exception("Cette action n'existe pas : ".$_GET['action']);
+                        break;
+                }
+            } else {
+                //si la personne ne spécifie pas de controller alors on charge la page d'acceuil
+                throw new \Exception("aucune action détectée");
+            }
+        } catch (\Exception $e) {
+            $this->render('errors/default', [
+                'error' => $e->getMessage()
+            ]);
+        }
+    }
+
+    protected function booking()
     {
         //On traite le formulaire
         if(!empty($_POST)){
@@ -51,11 +83,13 @@ class BookingRepository
                 }
 
                 
-                header("location: ./index.php?controller=book&action=check&id=1");
+                header("location: ./index.php?controller=booking&action=validate");
 
             }else{
                 die("Le formulaire est incomplet");
             }
         }
     } 
+
+   
 }

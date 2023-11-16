@@ -5,11 +5,7 @@ controlleur pour page statique comme home ou about
 
 namespace App\Controller;
 
-use App\Repository\UserRepository;
-use App\Repository\InscriptionRepository;
-use App\Repository\ConnexionRepository;
-use App\Repository\DeconnexionRepository;
-use App\Repository\MembreRepository;
+use App\Db\Mysql;
 
 class UserController extends Controller
 {
@@ -18,29 +14,10 @@ class UserController extends Controller
         try {
             if (isset($_GET['action'])) {
                 switch ($_GET['action']) {
-                    case 'show':
-                        // on appel la méthode connexion()
-                        $this->show();
-                        break;
-
-                    case 'inscription':
-                        // on appel la méthode inscription()
-                        $this->inscription();
-                        break;
-
-                    case 'connexion':
-                        // on appel la méthode connexion()
-                        $this->connexion();
-                        break;
-                    
-                    case 'deconnexion':
-                        // on appel la méthode deconnexion()
-                        $this->deconnexion();
-                        break;
-                  
                     case 'membre':
                         // on appel la méthode membre()
                         $this->membre();
+                        $this->render('user/index', []);
                         break;
                     
                     default:
@@ -59,104 +36,12 @@ class UserController extends Controller
         }
     }
 
-    
-    protected function show()
-    {
-        
-        try {
-            if (isset($_GET['id'])) {
-
-                $id = (int)$_GET['id'];
-
-                $userRepository = new UserRepository();
-                $user = $userRepository->findOneById($id);
-
-                $this->render('form/vue', [
-                    'user' => $user
-                ]);
-            } else {
-                throw new \Exception("l'id est manquant en paramètre");
-            }
-        } catch (\Exception $e) {
-            $this->render('errors/default', [
-                'error' => $e->getMessage()
-            ]);
-        }
-    }
-
-    protected function inscription()
-    {
-        try {
-            if (isset($_GET['id'])) {
-
-                $inscriptionRepository = new InscriptionRepository();
-                $inscription = $inscriptionRepository->register();
-
-                $this->render('form/inscription', [
-                    'user' => $inscription
-                ]);
-            } else {
-                throw new \Exception("l'id est manquant en paramètre");
-            }
-        } catch (\Exception $e) {
-            $this->render('errors/default', [
-                'error' => $e->getMessage()
-            ]);
-        }
-    }
-
-    protected function connexion()
-    {
-        try {
-            if (isset($_GET['id'])) {
-
-                $connexionRepository = new ConnexionRepository();
-                $connexion = $connexionRepository->authentification();
-
-                $this->render('form/vue', [
-                    'user' => $connexion
-                ]);
-            } else {
-                throw new \Exception("l'id est manquant en paramètre");
-            }
-        } catch (\Exception $e) {
-            $this->render('errors/default', [
-                'error' => $e->getMessage()
-            ]);
-        }
-    }
-
-    protected function deconnexion()
-    {
-        try {
-            if (isset($_GET['id'])) {
-
-                $decoRepository = new DeconnexionRepository();
-                $deconnexion = $decoRepository->deconnexion();
-
-                $this->render('form/vue', [
-                    'user' => $deconnexion
-                ]);
-            } else {
-                throw new \Exception("l'id est manquant en paramètre");
-            }
-        } catch (\Exception $e) {
-            $this->render('errors/default', [
-                'error' => $e->getMessage()
-            ]);
-        }
-    }
-
     protected function membre()
     {
-        try {
-            
-                $this->render('user/profilUser', []);
-           
-        } catch (\Exception $e) {
-            $this->render('errors/default', [
-                'error' => $e->getMessage()
-            ]);
+        session_start();
+        if(!isset($_SESSION["user"])){
+            header("location: ./index.php?controller=Home&action=show");
+            exit;  
         }
     }
 }  

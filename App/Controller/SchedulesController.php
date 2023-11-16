@@ -7,7 +7,7 @@ namespace App\Controller;
 
 use App\Db\Mysql;
 
-class HomeController extends Controller 
+class SchedulesController extends Controller
 {
     public function route(): void 
     {
@@ -17,11 +17,6 @@ class HomeController extends Controller
                     case 'show':
                         // on appel la méthode show()
                         $this->show();
-                        break;
-
-                    case 'edit':
-                        // on appel la méthode show()
-                        $this->edit();
                         break;
                     
                     default:
@@ -40,29 +35,20 @@ class HomeController extends Controller
         }
     }
 
-    protected function show()
-    {    
+    protected function show(){
+
+        //on se connecte à la bdd
         $mysql = Mysql::getInstance();
         $pdo = $mysql->getPDO();
-        $query = $pdo->prepare('SELECT * FROM home');
-        $query->execute();
-        $home = $query->fetchAll($pdo::FETCH_ASSOC);
-        
-        //var_dump($home);
 
-        $this->render('home/index', [
-            'home' => $home
+        $query = $pdo->prepare('SELECT * FROM horaires');
+        $query->execute();
+        $schedules = $query->fetchAll($pdo::FETCH_ASSOC);
+
+        //var_dump($schedules);
+        
+        $this->render('schedules/index', [
+            'schedules' => $schedules
         ]);
-    }
-
-    protected function edit()
-    {    
-
-        $mysql = Mysql::getInstance();
-        $pdo = $mysql->getPDO();
-        $query = $pdo->prepare('UPDATE * FROM home');
-        $query->execute();
-        $home = $query->fetchAll($pdo::FETCH_ASSOC);
-        
     }
 }

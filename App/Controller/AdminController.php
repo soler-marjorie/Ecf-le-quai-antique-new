@@ -1,37 +1,29 @@
 <?php
+/*
+controlleur pour page statique comme home ou about 
+*/
 
 namespace App\Controller;
 
-//on appel le repository que l'on est en train de gérer
 use App\Db\Mysql;
 
-class MenuController extends Controller 
+class AdminController extends Controller
 {
     public function route(): void 
     {
         try {
             if (isset($_GET['action'])) {
                 switch ($_GET['action']) {
-                    case 'show':
-                        // pour afficher un menu
+                    case 'pannel':
+                        // on appel la méthode show()
                         $this->show();
                         break;
-                    /*
+
                     case 'edit':
-                        // pour modifier un menu
-                        //$this->edit();
-                        break;
-                    
-                    case 'add':
-                        // pour ajouter un menu
-                        //$this->add();
+                        // on appel la méthode edit()
+                        $this->edit();
                         break;
 
-                    case 'delete':
-                        // pour supprimer un menu
-                        //$this->delete();
-                        break;
-*/
                     default:
                         // génère une erreur
                         throw new \Exception("Cette action n'existe pas : ".$_GET['action']);
@@ -49,9 +41,21 @@ class MenuController extends Controller
     }
 
     protected function show()
-    {
+    {   
         $mysql = Mysql::getInstance();
         $pdo = $mysql->getPDO();
+
+        //home 
+        $query = $pdo->prepare('SELECT * FROM home');
+        $query->execute();
+        $home = $query->fetchAll($pdo::FETCH_ASSOC);
+
+        $this->render('admin/show/home', [
+            'home' => $home
+        ]);
+
+
+        //menu 
         $query = $pdo->prepare('SELECT * FROM menu');
         $query->execute();
         $menu = $query->fetchAll($pdo::FETCH_ASSOC);
@@ -59,14 +63,24 @@ class MenuController extends Controller
         $query = $pdo->prepare('SELECT * FROM menuTitle');
         $query->execute();
         $menuTitle = $query->fetchAll($pdo::FETCH_ASSOC);
-        
-        //var_dump($menu);
-        //var_dump($menuTitle);
 
-        $this->render('menu/index', [
+        $this->render('admin/show/menu', [
             'menu' => $menu,
             'menuTitle' => $menuTitle
-        ]);        
+        ]);
+
+        //horaires
+        $query = $pdo->prepare('SELECT * FROM horaires');
+        $query->execute();
+        $horaires = $query->fetchAll($pdo::FETCH_ASSOC);
+
+        $this->render('admin/show/schedules', [
+            'horaires' => $horaires
+        ]);
     }
 
+    protected function edit()
+    {   
+        $this->render('admin/index', []);
+    }
 }

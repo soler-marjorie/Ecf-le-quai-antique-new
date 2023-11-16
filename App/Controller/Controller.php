@@ -49,16 +49,34 @@ class Controller
                         $userController->route();
                         break;
                     
-                    case 'book':
-                        // on va charger le controller booking
-                        $bookController = new BookController();
-                        $bookController->route();
+                    case 'connexion':
+                        // on va charger le controller connexion
+                        $connexionController = new ConnexionController();
+                        $connexionController->route();
                         break;
 
-                    case 'crud':
-                        // on va charger le controller admin
-                        $crudController = new CrudController();
-                        $crudController->route();
+                    case 'inscription':
+                        // on va charger le controller connexion
+                        $inscriptionController = new InscriptionController();
+                        $inscriptionController->route();
+                        break;
+
+                    case 'booking':
+                        // on va charger le controller booking
+                        $bookingController = new BookingController();
+                        $bookingController->route();
+                        break;
+
+                    case 'schedules':
+                        // on va charger le controller horaires
+                        $schedulesController = new SchedulesController();
+                        $schedulesController->route();
+                        break;
+
+                    case 'admin':
+                        // on va charger le controller horaires
+                        $adminController = new AdminController();
+                        $adminController->route();
                         break;
 
                     default:

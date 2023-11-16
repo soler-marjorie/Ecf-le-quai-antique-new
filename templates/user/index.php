@@ -1,16 +1,8 @@
 <?php 
     @session_start();
-    use App\Db\Mysql;
+
     require_once _ROOTPATH_.'\templates\header.php'; 
 
-    $mysql = Mysql::getInstance();
-    $pdo = $mysql->getPDO();
-
-    $query = $pdo->prepare('SELECT * FROM user WHERE id = :id');
-    $query->bindValue(':id', $_SESSION['user'], PDO::PARAM_INT);
-    $query->execute();
-
-    $user = $query->fetch();
     ?>
 
         

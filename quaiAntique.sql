@@ -1,4 +1,4 @@
--- Active: 1694940952715@@127.0.0.1@3306@quaiantiquestudiphp
+-- Active: 1699283430076@@127.0.0.1@3306@quaiantiquestudiphp
 
 -- ----------------------------------------
 
@@ -65,6 +65,33 @@ VALUES
 
 -- ------------------------------------------
 
+
+--
+-- structure de la table 'menuTitre'
+--
+
+DROP TABLE IF EXISTS menuTitre;
+CREATE TABLE IF NOT EXISTS menuTitle(
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    formule VARCHAR(55) NOT NULL,
+    plat VARCHAR(55) NOT NULL
+);
+
+--
+-- déchargement des données de la table 'menuTitre'
+--
+
+INSERT INTO menuTitle (formule, plat)
+VALUES
+('Les menus', 'Nos formules'),
+('Les entrées', 'Nos salades'),
+('Les plats', 'Nos burgers'),
+('Les plats', 'Nos pâtes'),
+('Les plats', 'Nos viandes'),
+('Les desserts', 'Nos sucrés')
+
+-- ------------------------------------------
+
 --
 -- structure de la table 'user'
 --
@@ -103,10 +130,12 @@ CREATE TABLE IF NOT EXISTS admin(
 --
 -- déchargement des données de la table 'admin'
 --
-
-INSERT INTO admin (pseudo, email, password )
+/*
+INSERT INTO admin (pseudo, email, password)
 VALUES
 ('quaiAntique', 'leQuaiAntique@exemple.fr', 'AntiqueRestaurant72');
+*/
+DELETE FROM admin WHERE id = 1;
 
 -- ------------------------------------------
 
@@ -138,8 +167,8 @@ VALUES
 -- structure de la table 'Horaires'
 --
 
-DROP TABLE IF EXISTS schedules;
-CREATE TABLE IF NOT EXISTS schedules(
+DROP TABLE IF EXISTS horaires;
+CREATE TABLE IF NOT EXISTS horaires(
     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     jours VARCHAR(15) NOT NULL,
     horairesMatin VARCHAR(15) NOT NULL,
@@ -150,15 +179,15 @@ CREATE TABLE IF NOT EXISTS schedules(
 -- déchargement des données de la table 'Horaires'
 --
 
-INSERT INTO schedules (jours, horairesMatin, horairesAprem)
+INSERT INTO horaires (jours, horairesMatin, horairesAprem)
 VALUES
 ('lundi', "12:00-14:00", "19:00-22:00"),
 ('mardi', "12:00-14:00", "19:00-22:00"),
-('mercredi', "fermé", ""),
+('mercredi', "fermé", "fermé"),
 ('jeudi', "12:00-14:00", "19:00-22:00"),
-('vendredi', "", "19:00-23:00"),
+('vendredi', "fermé", "19:00-23:00"),
 ('samedi', "12:00-14:00", "19:00-22:00"),
-('dimanche', "12:00-14:00", "");
+('dimanche', "12:00-14:00", "fermé");
 
 
 -- ------------------------------------------
